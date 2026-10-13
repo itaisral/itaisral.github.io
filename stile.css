@@ -288,3 +288,12 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
   .logo-grande img { width: min(300px, 78vw); margin: 0 auto; }
 }
 @media (max-width: 1080px) and (min-width: 901px) { .menu a { padding: 8px 9px; font-size: 15px; } .menu .cta { margin-left: 6px; } }
+
+/* ---------- Apertura su telefono: intestazione verticale ---------- */
+.intestazione-mobile { display: none; }
+@media (max-width: 820px) {
+  .apertura .intestazione-mobile { display: block; order: -1; width: min(400px, 100%); height: auto; justify-self: center; margin-bottom: 4px; }
+  .apertura .logo, .apertura .motto { display: none; }
+  .apertura .ebraico, .apertura h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; }
+  .apertura .avviso { margin-bottom: 22px; }
+}
