@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contatti · Associazione Italia Israele • Alessandria</title>
+<meta name="description" content="Associazione Italia Israele di Alessandria. Dialogo, conoscenza, collaborazione, futuro.">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Frank+Ruhl+Libre:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root { --blu: #18304e; --blu-2: #224774; --rosso: #b12218; --testo: #1f2023; --grigio: #6b6f76; --linea: #e4ddd1; --fondo: #fbf8f2; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--fondo); color: var(--testo); font-family: "Titillium Web", system-ui, sans-serif; font-weight: 300; font-size: 17px; line-height: 1.6; }
+  .pagina { max-width: 1024px; margin: 0 auto; padding: 32px 16px 64px; min-height: 100vh; display: flex; flex-direction: column; }
+  header { margin-bottom: 48px; }
+  .intestazione { display: block; width: 100%; height: auto; }
+  .testata-mobile { display: none; }
+  main { flex: 1; text-align: center; }
+  .chai { font-family: "Frank Ruhl Libre", serif; font-size: 64px; line-height: 1; color: var(--rosso); margin: 0 0 18px; }
+  p { margin: 0 auto 14px; max-width: 560px; }
+  .lieve { color: var(--grigio); font-size: 15px; }
+  .bottone { display: inline-block; margin: 22px 0 8px; padding: 13px 34px; background: var(--blu); color: #fff; text-decoration: none;
+    border-radius: 10px; font-weight: 400; letter-spacing: .06em; }
+  .bottone:hover { background: var(--blu-2); }
+  .altri { display: flex; justify-content: center; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .secondario { display: inline-block; min-width: 150px; padding: 11px 24px; border: 1px solid var(--linea); border-radius: 10px;
+    background: #fff; color: var(--blu); text-decoration: none; font-weight: 400; letter-spacing: .04em; }
+  .secondario:hover { border-color: var(--blu); }
+  footer { margin-top: 56px; text-align: center; font-size: 13px; color: var(--grigio); }
+  footer a { color: var(--grigio); }
+  @media (max-width: 560px) {
+    .intestazione { display: none; }
+    .testata-mobile { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; }
+    body { font-size: 15px; }
+    .chai { font-size: 52px; }
+  }
+  h1 { font-weight: 300; font-size: 34px; color: var(--blu); margin: 0 0 28px; }
+  .blocchi { display: grid; gap: 14px; max-width: 560px; margin: 0 auto; text-align: left; }
+  .blocco { background: #fff; border: 1px solid var(--linea); border-radius: 10px; padding: 16px 18px; }
+  .blocco h2 { margin: 0 0 4px; font-size: 13px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--blu); }
+  .blocco p { margin: 0; max-width: none; }
+  .blocco a { color: var(--blu-2); }
+  @media (max-width: 560px) { h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <a href="/"><img class="intestazione" src="/intestazione.svg" alt="Associazione Italia Israele • Alessandria · עמותת איטליה־ישראל אלסנדריה · Dialogo, Conoscenza, Collaborazione, Futuro"></a>
+    <a href="/"><img class="testata-mobile" src="/intestazione-verticale.svg" alt="Associazione Italia Israele • Alessandria · עמותת איטליה־ישראל אלסנדריה · Dialogo, Conoscenza, Collaborazione, Futuro"></a>
+  </header>
+
+  <main>
+    <h1>Contatti</h1>
+    <div class="blocchi">
+      <div class="blocco">
+        <h2>Scrivici</h2>
+        <p><a href="mailto:info@italiaisraeleal.it">info@italiaisraeleal.it</a></p>
+      </div>
+      <div class="blocco">
+        <h2>Tessera e quote</h2>
+        <p>Per domande sull'iscrizione, sul rinnovo o sul pagamento della quota scrivi allo stesso indirizzo, indicando se puoi il numero della tua tessera.</p>
+      </div>
+      <div class="blocco">
+        <h2>Dati personali</h2>
+        <p>Per consultare, correggere o cancellare i tuoi dati, o per revocare un consenso, scrivi allo stesso indirizzo. Trovi tutto nell'<a href="/chai/privacy.html">informativa sulla privacy</a>.</p>
+      </div>
+      <div class="blocco">
+        <h2>Dove siamo</h2>
+        <p>Alessandria</p>
+      </div>
+    </div>
+    <a class="bottone" href="mailto:info@italiaisraeleal.it">Scrivici</a>
+    <nav class="altri">
+      <a class="secondario" href="/">Home</a>
+      <a class="secondario" href="/chai/">Diventa socio</a>
+    </nav>
+  </main>
+
+  <footer>
+    Associazione Italia Israele • Alessandria · <a href="mailto:info@italiaisraeleal.it">info@italiaisraeleal.it</a>
+  </footer>
+</div>
+</body>
+</html>
