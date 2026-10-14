@@ -69,7 +69,7 @@
 #barra-sito .menu-btn[aria-expanded="true"] > span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 #barra-sito .sr, #piede-sito .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-@media (max-width: 1120px) {
+@media (max-width: 1180px) {
   #barra-sito .menu-btn { display: block; }
   #barra-sito .menu { position: fixed; top: var(--b-altezza); left: 0; right: 0; max-height: calc(100vh - var(--b-altezza)); overflow-y: auto;
     flex-direction: column; align-items: stretch; gap: 0; background: var(--b-fondo); border-bottom: 1px solid var(--b-linea);

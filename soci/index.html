@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Area soci · Associazione Italia Israele • Alessandria</title>
+<meta name="description" content="Area riservata ai soci dell'Associazione Italia Israele di Alessandria: tessera digitale, ricevute e documenti.">
+<meta property="og:title" content="Area soci · Associazione Italia Israele • Alessandria">
+<meta property="og:description" content="Area riservata ai soci dell'Associazione Italia Israele di Alessandria: tessera digitale, ricevute e documenti.">
+<meta property="og:image" content="https://italiaisraeleal.it/img/condivisione.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fbf8f2">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Frank+Ruhl+Libre:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/barra.css?v=20261015a">
+<link rel="stylesheet" href="/stile.css?v=20261015a">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<!--barra-->
+<div id="barra-sito" class="barra" role="banner">
+  <div class="barra-in">
+    <a class="marchio" href="/" aria-label="Associazione Italia Israele • Alessandria, pagina iniziale"><img src="/marchio.svg" alt="Associazione Italia Israele • Alessandria" width="296" height="46"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-sito"><span></span><span></span><span></span><span class="sr">Menu</span></button>
+    <nav class="menu" id="menu-sito" aria-label="Menu principale">
+      <div class="voce">
+        <button class="voce-btn" type="button" aria-expanded="false">Chi siamo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto"><a href="/chi-siamo/">Chi siamo</a><a href="/il-logo/">Il logo</a></div>
+      </div>
+      <a href="/attivita/">Attività</a>
+      <div class="voce">
+        <button class="voce-btn" type="button" aria-expanded="false">Eventi <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto sotto-eventi">
+          <div class="eventi-griglia"><span class="evento memo"><span class="data">27 gennaio</span><span class="nome">Giorno della Memoria</span></span><span class="evento memo"><span class="data">6 marzo</span><span class="nome">Giornata dei Giusti</span></span><span class="evento memo"><span class="data">25 aprile</span><span class="nome">Liberazione e Brigata Ebraica</span></span><span class="evento memo"><span class="data">27 Nissan</span><span class="nome">Yom HaShoah <span lang="he" dir="rtl">יום השואה</span></span></span><span class="evento memo"><span class="data">4 Iyar</span><span class="nome">Yom HaZikaron <span lang="he" dir="rtl">יום הזיכרון</span></span></span><span class="evento memo"><span class="data">5 Iyar</span><span class="nome">Yom HaAtzmaut <span lang="he" dir="rtl">יום העצמאות</span></span></span><span class="evento memo"><span class="data">14 maggio</span><span class="nome">Proclamazione dello Stato d’Israele, 1948</span></span><span class="evento memo"><span class="data">28 Iyar</span><span class="nome">Yom Yerushalayim <span lang="he" dir="rtl">יום ירושלים</span></span></span><span class="evento memo"><span class="data">Settembre</span><span class="nome">Giornata europea della cultura ebraica</span></span><span class="evento memo"><span class="data">5 settembre · 17 novembre</span><span class="nome">Leggi razziali, 1938</span></span><a class="evento" href="/7ottobre/"><span class="data">7 ottobre</span><span class="nome">Massacro del 7 ottobre 2023</span></a><span class="evento memo"><span class="data">9 ottobre</span><span class="nome">Attentato alla Sinagoga di Roma, 1982</span></span><span class="evento memo"><span class="data">16 ottobre</span><span class="nome">Rastrellamento del Ghetto di Roma, 1943</span></span><span class="evento memo"><span class="data">9 novembre</span><span class="nome">Notte dei cristalli, 1938</span></span><span class="evento memo"><span class="data">29 novembre</span><span class="nome">Voto dell’ONU sulla spartizione, 1947</span></span></div>
+          <p class="eventi-nota">Le date ebraiche cambiano ogni anno e le trovi nel <a href="/calendario/">calendario ebraico</a>.</p>
+        </div>
+      </div>
+      <a href="/calendario/">Calendario ebraico</a>
+      <a href="/contatti/">Contatti</a>
+      <a href="/soci/" aria-current="page">Area soci</a>
+      <a href="/chai/" class="cta">Diventa socio</a>
+    </nav>
+  </div>
+</div>
+<!--/barra-->
+
+<main>
+  <section class="testata">
+    <div class="contenitore">
+      <p class="occhiello">Area soci</p>
+      <h1>Area riservata ai soci</h1>
+      <p class="lead">La tua tessera digitale, le ricevute delle quote e i documenti dell’associazione.</p>
+    </div>
+  </section>
+
+  <section class="sezione">
+    <div class="contenitore">
+      <div id="caricamento" class="area-attesa" hidden><p>Un momento…</p></div>
+
+      <div id="accesso" class="accesso">
+        <form id="f-email" class="pannello-accesso" novalidate hidden>
+          <h2>Entra</h2>
+          <p>Scrivi l’indirizzo email con cui ti sei iscritto. Ti mandiamo un codice di sei cifre per entrare, senza password.</p>
+          <div class="campo"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="trappola" aria-hidden="true"><label for="sito">Sito</label><input id="sito" name="sito" tabindex="-1" autocomplete="off"></div>
+          <div id="turnstile-area" class="verifica"></div>
+          <div><button class="bottone" type="submit">Mandami il codice</button></div>
+          <p class="esito" id="esito-email" role="status" aria-live="polite"></p>
+        </form>
+
+        <form id="f-codice" class="pannello-accesso" novalidate hidden>
+          <h2>Controlla la posta</h2>
+          <p>Se <b id="email-scritta"></b> è nel nostro libro soci, ti abbiamo appena mandato un codice. Vale dieci minuti.</p>
+          <div class="campo"><label for="codice">Codice</label>
+            <input id="codice" name="codice" class="campo-codice" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="······"></div>
+          <div><button class="bottone" type="submit">Entra</button></div>
+          <p class="esito" id="esito-codice" role="status" aria-live="polite"></p>
+          <p class="piccolo">Non è arrivato? Guarda anche nella posta indesiderata, oppure
+            <button type="button" class="link" id="rimanda">chiedine un altro</button> ·
+            <button type="button" class="link" id="cambia">cambia indirizzo</button></p>
+        </form>
+
+        <aside class="non-socio">
+          <h3>Non sei ancora socio?</h3>
+          <p>L’area è riservata a chi ha la tessera o ha fatto domanda di adesione.</p>
+          <a class="bottone chiaro" href="/chai/">Diventa socio</a>
+        </aside>
+      </div>
+
+      <div id="area" hidden>
+        <div class="area-testa">
+          <h2 id="saluto">Shalom</h2>
+          <button type="button" class="bottone chiaro" id="esci">Esci</button>
+        </div>
+        <div id="tessere" class="tessere"></div>
+        <p class="piccolo tessere-nota">Agli incontri basta mostrare il codice QR della tessera dal telefono.</p>
+
+        <div class="area-colonne">
+          <section class="area-blocco">
+            <h3>Ricevute</h3>
+            <ul class="elenco-file" id="ricevute"></ul>
+          </section>
+          <section class="area-blocco">
+            <h3>Documenti dell’associazione</h3>
+            <ul class="elenco-file" id="documenti"></ul>
+          </section>
+        </div>
+
+        <section class="area-blocco">
+          <h3>I tuoi dati</h3>
+          <dl class="dati-socio" id="dati"></dl>
+          <p class="piccolo">Per correggere qualcosa o cambiare un consenso scrivi a <a href="mailto:tesseramento@italiaisraeleal.it">tesseramento@italiaisraeleal.it</a>.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="/soci/area.js?v=20261015a" defer></script>
+
+<!--piede-->
+<div id="piede-sito" class="piede" role="contentinfo">
+  <div class="piede-in">
+    <div class="colonne">
+      <div class="firma">
+        <a href="/" aria-label="Associazione Italia Israele • Alessandria, pagina iniziale"><img src="/piede.svg" alt="Associazione Italia Israele • Alessandria · עמותת איטליה־ישראל אלסנדריה · Dialogo, Conoscenza, Collaborazione, Futuro" width="310" height="212"></a>
+      </div>
+      <div>
+        <h4>Il sito</h4>
+        <ul>
+          <li><a href="/chi-siamo/">Chi siamo</a></li>
+          <li><a href="/attivita/">Attività</a></li>
+          <li><a href="/calendario/">Calendario ebraico</a></li>
+          <li><a href="/7ottobre/">7 ottobre</a></li>
+          <li><a href="/chai/">Diventa socio</a></li>
+          <li><a href="/soci/">Area soci</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Scrivici</h4>
+        <ul>
+          <li><a href="mailto:info@italiaisraeleal.it">info@italiaisraeleal.it</a></li>
+          <li><a href="mailto:tesseramento@italiaisraeleal.it">tesseramento@italiaisraeleal.it</a></li>
+          <li><a href="mailto:stampa@italiaisraeleal.it">stampa@italiaisraeleal.it</a></li>
+          <li><a href="/contatti/">Tutti i contatti</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Seguici</h4>
+        <div class="social-mini">
+          <a href="https://www.facebook.com/itaisral" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2.5H7.5v4H10V21h4v-6.5h3l.5-4H14V8.6c0-.3.3-.6.6-.6z"/></svg></a>
+          <a href="https://www.instagram.com/italiaisraeleal/" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="fondo-piede">
+      <span>© <span data-anno>2026</span> Associazione Italia Israele • Alessandria</span>
+      <span><a href="/chai/privacy.html">Privacy</a> · <a href="/contatti/">Contatti</a></span>
+    </div>
+  </div>
+</div>
+<script src="/barra.js?v=20261015a" defer></script>
+<!--/piede-->
+<script src="/sito.js?v=20261015a" defer></script>
+</body>
+</html>

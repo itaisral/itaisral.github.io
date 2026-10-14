@@ -5,7 +5,7 @@
   const bottone = barra.querySelector(".menu-btn");
   const menu = barra.querySelector(".menu");
   const voci = barra.querySelectorAll(".voce");
-  const stretto = () => window.matchMedia("(max-width: 1120px)").matches;
+  const stretto = () => window.matchMedia("(max-width: 1180px)").matches;
 
   function chiudiVoci(tranne) { voci.forEach(v => { if (v !== tranne) { v.classList.remove("aperta"); v.querySelector(".voce-btn").setAttribute("aria-expanded", "false"); } }); }
   function chiudiTutto() {
