@@ -3,6 +3,7 @@
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzFYbCpoZimTdvpAxVC317WNIetut5U4ZqZiouJqHSp7VpubdsS5XxadIZyXqLHXPA6/exec";
   const INFO = "info@italiaisraeleal.it";
   const AVVIO = Date.now();
+  const TURNSTILE = "0x4AAAAAAFWsdikKgTl1PFvE";   // chiave pubblica Cloudflare Turnstile
 
   /* comparsa dolce delle sezioni */
   const elementi = document.querySelectorAll(".compare");
@@ -38,6 +39,21 @@
       '<a href="mailto:' + INFO + "?subject=" + oggetto + "&body=" + corpo + '">' + INFO + "</a>, lo abbiamo già preparato.");
   }
 
+  /* verifica di sicurezza Cloudflare Turnstile */
+  let turnstileId = null;
+  const box = document.getElementById("turnstile-scrivici");
+  if (TURNSTILE && box) {
+    window.avviaTurnstileScrivici = () => {
+      turnstileId = turnstile.render(box, { sitekey: TURNSTILE, language: "it", theme: "light" });
+    };
+    const sc = document.createElement("script");
+    sc.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=avviaTurnstileScrivici";
+    sc.async = true; sc.defer = true;
+    document.head.appendChild(sc);
+  }
+  const token = () => (window.turnstile && turnstileId !== null) ? (turnstile.getResponse(turnstileId) || "") : "";
+  const azzera = () => { if (window.turnstile && turnstileId !== null) turnstile.reset(turnstileId); };
+
   form.addEventListener("input", e => {
     const c = e.target.closest(".campo, .consenso"); if (c) c.classList.remove("errore");
   });
@@ -49,11 +65,12 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val("email"))) return errore("Controlla l'indirizzo email.", el.email);
     if (val("messaggio").length < 5) return errore("Il messaggio è vuoto.", el.messaggio);
     if (!el.consenso.checked) return errore("Serve il consenso al trattamento dei dati per poterti rispondere.", el.consenso);
+    if (TURNSTILE && box && !token()) return errore("Attendi la verifica di sicurezza qui sopra, poi invia.", box);
     form.querySelectorAll(".errore").forEach(c => c.classList.remove("errore"));
 
     invia.disabled = true; messaggio("Invio in corso…");
     const dati = { azione: "contatto", nome: val("nome"), email: val("email"), argomento: val("argomento"),
-      messaggio: val("messaggio"), sito: el.sito.value, tempo: Date.now() - AVVIO };
+      messaggio: val("messaggio"), sito: el.sito.value, tempo: Date.now() - AVVIO, turnstile: token() };
     try {
       const r = await fetch(SCRIPT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(dati) });
       const j = await r.json();
@@ -62,10 +79,10 @@
           "<h3>Grazie, messaggio ricevuto</h3><p>Ti risponderemo all'indirizzo che ci hai lasciato.</p></div>";
         return;
       }
-      if (j.ok === false && j.errore && j.errore !== "Tipo non valido") { messaggio(j.errore + ".", "male"); invia.disabled = false; return; }
-      riserva();
+      if (j.ok === false && j.errore && j.errore !== "Tipo non valido") { messaggio(j.errore + ".", "male"); azzera(); invia.disabled = false; return; }
+      riserva(); azzera();
     } catch (err) {
-      riserva();
+      riserva(); azzera();
     }
     invia.disabled = false;
   });

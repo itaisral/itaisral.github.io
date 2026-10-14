@@ -299,3 +299,4 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
   .cal-he { font-size: 22px; }
   .cal-tr { font-size: 18px; }
 }
+.verifica:empty { display: none; }
