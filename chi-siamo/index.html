@@ -14,22 +14,36 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Frank+Ruhl+Libre:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/barra.css">
 <link rel="stylesheet" href="/stile.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<header class="barra">
+<!--barra-->
+<div id="barra-sito" class="barra" role="banner">
   <div class="barra-in">
-    <a class="marchio" href="/" aria-label="Associazione Italia Israele • Alessandria, pagina iniziale">
-      <img class="marchio-img" src="/marchio.svg" alt="Associazione Italia Israele • Alessandria" width="296" height="46">
-    </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><span class="sr">Menu</span></button>
-    <nav class="menu" id="menu" aria-label="Menu principale">
-      <a href="/chi-siamo/" aria-current="page">Chi siamo</a><a href="/il-logo/">Il logo</a><a href="/attivita/">Attività</a><a href="/7ottobre/">7 ottobre</a><a href="/contatti/">Contatti</a>
-      <a class="cta" href="/chai/">Diventa socio</a>
+    <a class="marchio" href="/" aria-label="Associazione Italia Israele • Alessandria, pagina iniziale"><img src="/marchio.svg" alt="Associazione Italia Israele • Alessandria" width="296" height="46"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-sito"><span></span><span></span><span></span><span class="sr">Menu</span></button>
+    <nav class="menu" id="menu-sito" aria-label="Menu principale">
+      <div class="voce">
+        <button class="voce-btn attiva" type="button" aria-expanded="false">Chi siamo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto"><a href="/chi-siamo/" aria-current="page">Chi siamo</a><a href="/il-logo/">Il logo</a></div>
+      </div>
+      <a href="/attivita/">Attività</a>
+      <div class="voce">
+        <button class="voce-btn" type="button" aria-expanded="false">Eventi <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto sotto-eventi">
+          <div class="eventi-griglia"><span class="evento memo"><span class="data">27 gennaio</span><span class="nome">Giorno della Memoria</span></span><span class="evento memo"><span class="data">6 marzo</span><span class="nome">Giornata dei Giusti</span></span><span class="evento memo"><span class="data">25 aprile</span><span class="nome">Liberazione e Brigata Ebraica</span></span><span class="evento memo"><span class="data">27 Nissan</span><span class="nome">Yom HaShoah <span lang="he" dir="rtl">יום השואה</span></span></span><span class="evento memo"><span class="data">4 Iyar</span><span class="nome">Yom HaZikaron <span lang="he" dir="rtl">יום הזיכרון</span></span></span><span class="evento memo"><span class="data">5 Iyar</span><span class="nome">Yom HaAtzmaut <span lang="he" dir="rtl">יום העצמאות</span></span></span><span class="evento memo"><span class="data">14 maggio</span><span class="nome">Proclamazione dello Stato d’Israele, 1948</span></span><span class="evento memo"><span class="data">28 Iyar</span><span class="nome">Yom Yerushalayim <span lang="he" dir="rtl">יום ירושלים</span></span></span><span class="evento memo"><span class="data">Settembre</span><span class="nome">Giornata europea della cultura ebraica</span></span><span class="evento memo"><span class="data">5 settembre · 17 novembre</span><span class="nome">Leggi razziali, 1938</span></span><a class="evento" href="/7ottobre/"><span class="data">7 ottobre</span><span class="nome">Massacro del 7 ottobre 2023</span></a><span class="evento memo"><span class="data">9 ottobre</span><span class="nome">Attentato alla Sinagoga di Roma, 1982</span></span><span class="evento memo"><span class="data">16 ottobre</span><span class="nome">Rastrellamento del Ghetto di Roma, 1943</span></span><span class="evento memo"><span class="data">9 novembre</span><span class="nome">Notte dei cristalli, 1938</span></span><span class="evento memo"><span class="data">29 novembre</span><span class="nome">Voto dell’ONU sulla spartizione, 1947</span></span></div>
+          <p class="eventi-nota">Le date ebraiche cambiano ogni anno e le trovi nel <a href="/calendario/">calendario ebraico</a>.</p>
+        </div>
+      </div>
+      <a href="/calendario/">Calendario ebraico</a>
+      <a href="/contatti/">Contatti</a>
+      <a href="/chai/" class="cta">Diventa socio</a>
     </nav>
   </div>
-</header>
+</div>
+<!--/barra-->
 
 <main>
   <section class="testata">
@@ -69,8 +83,9 @@
   </section>
 </main>
 
-<footer class="piede">
-  <div class="contenitore">
+<!--piede-->
+<div id="piede-sito" class="piede" role="contentinfo">
+  <div class="piede-in">
     <div class="colonne">
       <div class="firma">
         <img src="/logo.svg" alt="">
@@ -84,8 +99,8 @@
         <h4>Il sito</h4>
         <ul>
           <li><a href="/chi-siamo/">Chi siamo</a></li>
-          <li><a href="/il-logo/">Il logo</a></li>
           <li><a href="/attivita/">Attività</a></li>
+          <li><a href="/calendario/">Calendario ebraico</a></li>
           <li><a href="/7ottobre/">7 ottobre</a></li>
           <li><a href="/chai/">Diventa socio</a></li>
         </ul>
@@ -112,7 +127,9 @@
       <span><a href="/chai/privacy.html">Privacy</a> · <a href="/contatti/">Contatti</a></span>
     </div>
   </div>
-</footer>
+</div>
+<script src="/barra.js" defer></script>
+<!--/piede-->
 <script src="/sito.js" defer></script>
 </body>
 </html>

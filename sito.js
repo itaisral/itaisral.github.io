@@ -4,25 +4,6 @@
   const INFO = "info@italiaisraeleal.it";
   const AVVIO = Date.now();
 
-  /* menu su telefono */
-  const bottone = document.querySelector(".menu-btn");
-  const menu = document.getElementById("menu");
-  function chiudi() { if (!menu) return; menu.classList.remove("aperto"); bottone.setAttribute("aria-expanded", "false"); }
-  if (bottone && menu) {
-    bottone.addEventListener("click", () => {
-      const aperto = menu.classList.toggle("aperto");
-      bottone.setAttribute("aria-expanded", aperto ? "true" : "false");
-    });
-    menu.addEventListener("click", e => { if (e.target.closest("a")) chiudi(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") chiudi(); });
-    document.addEventListener("click", e => { if (!e.target.closest(".barra")) chiudi(); });
-  }
-
-  /* bordo della barra quando si scorre */
-  const barra = document.querySelector(".barra");
-  const segna = () => barra && barra.classList.toggle("scorsa", window.scrollY > 8);
-  window.addEventListener("scroll", segna, { passive: true }); segna();
-
   /* comparsa dolce delle sezioni */
   const elementi = document.querySelectorAll(".compare");
   if ("IntersectionObserver" in window) {
@@ -31,9 +12,6 @@
     }), { rootMargin: "0px 0px -8% 0px", threshold: .08 });
     elementi.forEach(el => oss.observe(el));
   } else elementi.forEach(el => el.classList.add("vista"));
-
-  /* anno nel piede */
-  document.querySelectorAll("[data-anno]").forEach(el => el.textContent = new Date().getFullYear());
 
   /* modulo Scrivici */
   const form = document.querySelector("form.scrivici");

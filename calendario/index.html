@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendario ebraico · Associazione Italia Israele • Alessandria</title>
+<meta name="description" content="Calendario ebraico: la data di oggi, gli orari dello Shabbat ad Alessandria e le prossime feste, con i nomi in italiano, in ebraico e traslitterati.">
+<meta property="og:title" content="Calendario ebraico · Associazione Italia Israele • Alessandria">
+<meta property="og:description" content="Calendario ebraico: la data di oggi, gli orari dello Shabbat ad Alessandria e le prossime feste, con i nomi in italiano, in ebraico e traslitterati.">
+<meta property="og:image" content="https://italiaisraeleal.it/img/condivisione.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fbf8f2">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Frank+Ruhl+Libre:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/barra.css">
+<link rel="stylesheet" href="/stile.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<!--barra-->
+<div id="barra-sito" class="barra" role="banner">
+  <div class="barra-in">
+    <a class="marchio" href="/" aria-label="Associazione Italia Israele • Alessandria, pagina iniziale"><img src="/marchio.svg" alt="Associazione Italia Israele • Alessandria" width="296" height="46"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-sito"><span></span><span></span><span></span><span class="sr">Menu</span></button>
+    <nav class="menu" id="menu-sito" aria-label="Menu principale">
+      <div class="voce">
+        <button class="voce-btn" type="button" aria-expanded="false">Chi siamo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto"><a href="/chi-siamo/">Chi siamo</a><a href="/il-logo/">Il logo</a></div>
+      </div>
+      <a href="/attivita/">Attività</a>
+      <div class="voce">
+        <button class="voce-btn" type="button" aria-expanded="false">Eventi <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="sotto sotto-eventi">
+          <div class="eventi-griglia"><span class="evento memo"><span class="data">27 gennaio</span><span class="nome">Giorno della Memoria</span></span><span class="evento memo"><span class="data">6 marzo</span><span class="nome">Giornata dei Giusti</span></span><span class="evento memo"><span class="data">25 aprile</span><span class="nome">Liberazione e Brigata Ebraica</span></span><span class="evento memo"><span class="data">27 Nissan</span><span class="nome">Yom HaShoah <span lang="he" dir="rtl">יום השואה</span></span></span><span class="evento memo"><span class="data">4 Iyar</span><span class="nome">Yom HaZikaron <span lang="he" dir="rtl">יום הזיכרון</span></span></span><span class="evento memo"><span class="data">5 Iyar</span><span class="nome">Yom HaAtzmaut <span lang="he" dir="rtl">יום העצמאות</span></span></span><span class="evento memo"><span class="data">14 maggio</span><span class="nome">Proclamazione dello Stato d’Israele, 1948</span></span><span class="evento memo"><span class="data">28 Iyar</span><span class="nome">Yom Yerushalayim <span lang="he" dir="rtl">יום ירושלים</span></span></span><span class="evento memo"><span class="data">Settembre</span><span class="nome">Giornata europea della cultura ebraica</span></span><span class="evento memo"><span class="data">5 settembre · 17 novembre</span><span class="nome">Leggi razziali, 1938</span></span><a class="evento" href="/7ottobre/"><span class="data">7 ottobre</span><span class="nome">Massacro del 7 ottobre 2023</span></a><span class="evento memo"><span class="data">9 ottobre</span><span class="nome">Attentato alla Sinagoga di Roma, 1982</span></span><span class="evento memo"><span class="data">16 ottobre</span><span class="nome">Rastrellamento del Ghetto di Roma, 1943</span></span><span class="evento memo"><span class="data">9 novembre</span><span class="nome">Notte dei cristalli, 1938</span></span><span class="evento memo"><span class="data">29 novembre</span><span class="nome">Voto dell’ONU sulla spartizione, 1947</span></span></div>
+          <p class="eventi-nota">Le date ebraiche cambiano ogni anno e le trovi nel <a href="/calendario/">calendario ebraico</a>.</p>
+        </div>
+      </div>
+      <a href="/calendario/" aria-current="page">Calendario ebraico</a>
+      <a href="/contatti/">Contatti</a>
+      <a href="/chai/" class="cta">Diventa socio</a>
+    </nav>
+  </div>
+</div>
+<!--/barra-->
+
+<main>
+  <section class="testata">
+    <div class="contenitore">
+      <p class="occhiello">Calendario ebraico</p>
+      <h1>Calendario ebraico</h1>
+      <p class="lead">La data ebraica di oggi, lo Shabbat ad Alessandria e le feste dei prossimi dodici mesi.</p>
+    </div>
+  </section>
+
+  <section class="sezione">
+    <div class="contenitore">
+      <div class="cal-alto">
+        <div class="cal-oggi">
+          <p class="cal-etichetta">Oggi</p>
+          <p class="cal-ebraico" lang="he" dir="rtl" id="oggi-he">&nbsp;</p>
+          <p class="cal-traslitterata" id="oggi-it">&nbsp;</p>
+          <p class="cal-civile" id="oggi-civile">&nbsp;</p>
+          <p class="cal-nota">Nel calendario ebraico il giorno comincia al tramonto: da stasera è già il giorno seguente.</p>
+        </div>
+        <div class="cal-shabbat">
+          <p class="cal-etichetta">Shabbat ad Alessandria</p>
+          <div id="shabbat">
+            <p class="cal-nota">Caricamento degli orari…</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cal-lista-testa">
+        <h2>Le prossime feste</h2>
+        <div class="cal-legenda"><span class="tipo festa">Festa</span><span class="tipo digiuno">Digiuno</span><span class="tipo ricorrenza">Ricorrenza d’Israele</span></div>
+      </div>
+      <ol class="cal-lista" id="feste"></ol>
+      <p class="cal-nota cal-piede">Le feste cominciano al tramonto della sera prima e finiscono all’uscita delle stelle dell’ultimo giorno.
+        Le date seguono l’uso della diaspora, quello delle comunità italiane. Gli orari dello Shabbat sono calcolati da <a href="https://www.hebcal.com" rel="noopener">Hebcal</a>,
+        con l’accensione delle candele 18 minuti prima del tramonto.</p>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  const FESTE = [{"id": "rh", "it": "Capodanno", "he": "ראש השנה", "tr": "Rosh Hashanà", "tipo": "festa", "inizio": "2026-09-12", "fine": "2026-09-13", "ebr": "1–2 Tishrì 5787"}, {"id": "gedalia", "it": "Digiuno di Ghedalià", "he": "צום גדליה", "tr": "Tzom Ghedalià", "tipo": "digiuno", "inizio": "2026-09-14", "fine": "2026-09-14", "ebr": "3 Tishrì 5787"}, {"id": "kippur", "it": "Giorno dell’Espiazione", "he": "יום כיפור", "tr": "Yom Kippur", "tipo": "festa", "inizio": "2026-09-21", "fine": "2026-09-21", "ebr": "10 Tishrì 5787"}, {"id": "sukkot", "it": "Festa delle Capanne", "he": "סוכות", "tr": "Sukkot", "tipo": "festa", "inizio": "2026-09-26", "fine": "2026-10-02", "ebr": "15–21 Tishrì 5787"}, {"id": "shemini", "it": "Ottavo giorno di chiusura", "he": "שמיני עצרת", "tr": "Sheminì Atzeret", "tipo": "festa", "inizio": "2026-10-03", "fine": "2026-10-03", "ebr": "22 Tishrì 5787"}, {"id": "simchat", "it": "Gioia della Torà", "he": "שמחת תורה", "tr": "Simchat Torà", "tipo": "festa", "inizio": "2026-10-04", "fine": "2026-10-04", "ebr": "23 Tishrì 5787"}, {"id": "chanukka", "it": "Festa delle Luci", "he": "חנוכה", "tr": "Chanukkà", "tipo": "festa", "inizio": "2026-12-05", "fine": "2026-12-12", "ebr": "25 Kislev – 2 Tevet 5787"}, {"id": "tevet", "it": "Digiuno del 10 di Tevet", "he": "עשרה בטבת", "tr": "Asarà beTevet", "tipo": "digiuno", "inizio": "2026-12-20", "fine": "2026-12-20", "ebr": "10 Tevet 5787"}, {"id": "tubishvat", "it": "Capodanno degli alberi", "he": "ט״ו בשבט", "tr": "Tu biShvat", "tipo": "festa", "inizio": "2027-01-23", "fine": "2027-01-23", "ebr": "15 Shevat 5787"}, {"id": "ester", "it": "Digiuno di Ester", "he": "תענית אסתר", "tr": "Taanìt Ester", "tipo": "digiuno", "inizio": "2027-03-22", "fine": "2027-03-22", "ebr": "13 Adar II 5787"}, {"id": "purim", "it": "Festa delle Sorti", "he": "פורים", "tr": "Purim", "tipo": "festa", "inizio": "2027-03-23", "fine": "2027-03-23", "ebr": "14 Adar II 5787"}, {"id": "pesach", "it": "Pasqua ebraica", "he": "פסח", "tr": "Pesach", "tipo": "festa", "inizio": "2027-04-22", "fine": "2027-04-29", "ebr": "15–22 Nissan 5787"}, {"id": "shoah", "it": "Giorno della Shoah e dell’Eroismo", "he": "יום השואה", "tr": "Yom HaShoah", "tipo": "ricorrenza", "inizio": "2027-05-04", "fine": "2027-05-04", "ebr": "27 Nissan 5787"}, {"id": "zikaron", "it": "Giorno del Ricordo dei caduti e delle vittime del terrorismo", "he": "יום הזיכרון", "tr": "Yom HaZikaron", "tipo": "ricorrenza", "inizio": "2027-05-11", "fine": "2027-05-11", "ebr": "4 Iyar 5787"}, {"id": "atzmaut", "it": "Giorno dell’Indipendenza d’Israele", "he": "יום העצמאות", "tr": "Yom HaAtzmaut", "tipo": "ricorrenza", "inizio": "2027-05-12", "fine": "2027-05-12", "ebr": "5 Iyar 5787"}, {"id": "lagbaomer", "it": "Trentatreesimo giorno dell’Omer", "he": "ל״ג בעומר", "tr": "Lag baOmer", "tipo": "festa", "inizio": "2027-05-25", "fine": "2027-05-25", "ebr": "18 Iyar 5787"}, {"id": "yerushalayim", "it": "Giorno di Gerusalemme", "he": "יום ירושלים", "tr": "Yom Yerushalayim", "tipo": "ricorrenza", "inizio": "2027-06-04", "fine": "2027-06-04", "ebr": "28 Iyar 5787"}, {"id": "shavuot", "it": "Festa delle Settimane", "he": "שבועות", "tr": "Shavuot", "tipo": "festa", "inizio": "2027-06-11", "fine": "2027-06-12", "ebr": "6–7 Sivan 5787"}, {"id": "tammuz", "it": "Digiuno del 17 di Tammuz", "he": "שבעה עשר בתמוז", "tr": "Shivà Asar beTammuz", "tipo": "digiuno", "inizio": "2027-07-22", "fine": "2027-07-22", "ebr": "17 Tammuz 5787"}, {"id": "av", "it": "Digiuno del 9 di Av", "he": "תשעה באב", "tr": "Tishà beAv", "tipo": "digiuno", "inizio": "2027-08-12", "fine": "2027-08-12", "ebr": "9 Av 5787"}, {"id": "rh", "it": "Capodanno", "he": "ראש השנה", "tr": "Rosh Hashanà", "tipo": "festa", "inizio": "2027-10-02", "fine": "2027-10-03", "ebr": "1–2 Tishrì 5788"}, {"id": "gedalia", "it": "Digiuno di Ghedalià", "he": "צום גדליה", "tr": "Tzom Ghedalià", "tipo": "digiuno", "inizio": "2027-10-04", "fine": "2027-10-04", "ebr": "3 Tishrì 5788"}, {"id": "kippur", "it": "Giorno dell’Espiazione", "he": "יום כיפור", "tr": "Yom Kippur", "tipo": "festa", "inizio": "2027-10-11", "fine": "2027-10-11", "ebr": "10 Tishrì 5788"}, {"id": "sukkot", "it": "Festa delle Capanne", "he": "סוכות", "tr": "Sukkot", "tipo": "festa", "inizio": "2027-10-16", "fine": "2027-10-22", "ebr": "15–21 Tishrì 5788"}, {"id": "shemini", "it": "Ottavo giorno di chiusura", "he": "שמיני עצרת", "tr": "Sheminì Atzeret", "tipo": "festa", "inizio": "2027-10-23", "fine": "2027-10-23", "ebr": "22 Tishrì 5788"}, {"id": "simchat", "it": "Gioia della Torà", "he": "שמחת תורה", "tr": "Simchat Torà", "tipo": "festa", "inizio": "2027-10-24", "fine": "2027-10-24", "ebr": "23 Tishrì 5788"}, {"id": "chanukka", "it": "Festa delle Luci", "he": "חנוכה", "tr": "Chanukkà", "tipo": "festa", "inizio": "2027-12-25", "fine": "2028-01-01", "ebr": "25 Kislev – 2 Tevet 5788"}, {"id": "tevet", "it": "Digiuno del 10 di Tevet", "he": "עשרה בטבת", "tr": "Asarà beTevet", "tipo": "digiuno", "inizio": "2028-01-09", "fine": "2028-01-09", "ebr": "10 Tevet 5788"}, {"id": "tubishvat", "it": "Capodanno degli alberi", "he": "ט״ו בשבט", "tr": "Tu biShvat", "tipo": "festa", "inizio": "2028-02-12", "fine": "2028-02-12", "ebr": "15 Shevat 5788"}, {"id": "ester", "it": "Digiuno di Ester", "he": "תענית אסתר", "tr": "Taanìt Ester", "tipo": "digiuno", "inizio": "2028-03-09", "fine": "2028-03-09", "ebr": "11 Adar 5788"}, {"id": "purim", "it": "Festa delle Sorti", "he": "פורים", "tr": "Purim", "tipo": "festa", "inizio": "2028-03-12", "fine": "2028-03-12", "ebr": "14 Adar 5788"}, {"id": "pesach", "it": "Pasqua ebraica", "he": "פסח", "tr": "Pesach", "tipo": "festa", "inizio": "2028-04-11", "fine": "2028-04-18", "ebr": "15–22 Nissan 5788"}, {"id": "shoah", "it": "Giorno della Shoah e dell’Eroismo", "he": "יום השואה", "tr": "Yom HaShoah", "tipo": "ricorrenza", "inizio": "2028-04-24", "fine": "2028-04-24", "ebr": "28 Nissan 5788"}, {"id": "zikaron", "it": "Giorno del Ricordo dei caduti e delle vittime del terrorismo", "he": "יום הזיכרון", "tr": "Yom HaZikaron", "tipo": "ricorrenza", "inizio": "2028-05-01", "fine": "2028-05-01", "ebr": "5 Iyar 5788"}, {"id": "atzmaut", "it": "Giorno dell’Indipendenza d’Israele", "he": "יום העצמאות", "tr": "Yom HaAtzmaut", "tipo": "ricorrenza", "inizio": "2028-05-02", "fine": "2028-05-02", "ebr": "6 Iyar 5788"}, {"id": "lagbaomer", "it": "Trentatreesimo giorno dell’Omer", "he": "ל״ג בעומר", "tr": "Lag baOmer", "tipo": "festa", "inizio": "2028-05-14", "fine": "2028-05-14", "ebr": "18 Iyar 5788"}, {"id": "yerushalayim", "it": "Giorno di Gerusalemme", "he": "יום ירושלים", "tr": "Yom Yerushalayim", "tipo": "ricorrenza", "inizio": "2028-05-24", "fine": "2028-05-24", "ebr": "28 Iyar 5788"}, {"id": "shavuot", "it": "Festa delle Settimane", "he": "שבועות", "tr": "Shavuot", "tipo": "festa", "inizio": "2028-05-31", "fine": "2028-06-01", "ebr": "6–7 Sivan 5788"}, {"id": "tammuz", "it": "Digiuno del 17 di Tammuz", "he": "שבעה עשר בתמוז", "tr": "Shivà Asar beTammuz", "tipo": "digiuno", "inizio": "2028-07-11", "fine": "2028-07-11", "ebr": "17 Tammuz 5788"}, {"id": "av", "it": "Digiuno del 9 di Av", "he": "תשעה באב", "tr": "Tishà beAv", "tipo": "digiuno", "inizio": "2028-08-01", "fine": "2028-08-01", "ebr": "9 Av 5788"}, {"id": "rh", "it": "Capodanno", "he": "ראש השנה", "tr": "Rosh Hashanà", "tipo": "festa", "inizio": "2028-09-21", "fine": "2028-09-22", "ebr": "1–2 Tishrì 5789"}, {"id": "gedalia", "it": "Digiuno di Ghedalià", "he": "צום גדליה", "tr": "Tzom Ghedalià", "tipo": "digiuno", "inizio": "2028-09-24", "fine": "2028-09-24", "ebr": "4 Tishrì 5789"}, {"id": "kippur", "it": "Giorno dell’Espiazione", "he": "יום כיפור", "tr": "Yom Kippur", "tipo": "festa", "inizio": "2028-09-30", "fine": "2028-09-30", "ebr": "10 Tishrì 5789"}, {"id": "sukkot", "it": "Festa delle Capanne", "he": "סוכות", "tr": "Sukkot", "tipo": "festa", "inizio": "2028-10-05", "fine": "2028-10-11", "ebr": "15–21 Tishrì 5789"}, {"id": "shemini", "it": "Ottavo giorno di chiusura", "he": "שמיני עצרת", "tr": "Sheminì Atzeret", "tipo": "festa", "inizio": "2028-10-12", "fine": "2028-10-12", "ebr": "22 Tishrì 5789"}, {"id": "simchat", "it": "Gioia della Torà", "he": "שמחת תורה", "tr": "Simchat Torà", "tipo": "festa", "inizio": "2028-10-13", "fine": "2028-10-13", "ebr": "23 Tishrì 5789"}, {"id": "chanukka", "it": "Festa delle Luci", "he": "חנוכה", "tr": "Chanukkà", "tipo": "festa", "inizio": "2028-12-13", "fine": "2028-12-20", "ebr": "25 Kislev – 2 Tevet 5789"}, {"id": "tevet", "it": "Digiuno del 10 di Tevet", "he": "עשרה בטבת", "tr": "Asarà beTevet", "tipo": "digiuno", "inizio": "2028-12-28", "fine": "2028-12-28", "ebr": "10 Tevet 5789"}, {"id": "tubishvat", "it": "Capodanno degli alberi", "he": "ט״ו בשבט", "tr": "Tu biShvat", "tipo": "festa", "inizio": "2029-01-31", "fine": "2029-01-31", "ebr": "15 Shevat 5789"}, {"id": "ester", "it": "Digiuno di Ester", "he": "תענית אסתר", "tr": "Taanìt Ester", "tipo": "digiuno", "inizio": "2029-02-28", "fine": "2029-02-28", "ebr": "13 Adar 5789"}, {"id": "purim", "it": "Festa delle Sorti", "he": "פורים", "tr": "Purim", "tipo": "festa", "inizio": "2029-03-01", "fine": "2029-03-01", "ebr": "14 Adar 5789"}, {"id": "pesach", "it": "Pasqua ebraica", "he": "פסח", "tr": "Pesach", "tipo": "festa", "inizio": "2029-03-31", "fine": "2029-04-07", "ebr": "15–22 Nissan 5789"}, {"id": "shoah", "it": "Giorno della Shoah e dell’Eroismo", "he": "יום השואה", "tr": "Yom HaShoah", "tipo": "ricorrenza", "inizio": "2029-04-12", "fine": "2029-04-12", "ebr": "27 Nissan 5789"}, {"id": "zikaron", "it": "Giorno del Ricordo dei caduti e delle vittime del terrorismo", "he": "יום הזיכרון", "tr": "Yom HaZikaron", "tipo": "ricorrenza", "inizio": "2029-04-18", "fine": "2029-04-18", "ebr": "3 Iyar 5789"}, {"id": "atzmaut", "it": "Giorno dell’Indipendenza d’Israele", "he": "יום העצמאות", "tr": "Yom HaAtzmaut", "tipo": "ricorrenza", "inizio": "2029-04-19", "fine": "2029-04-19", "ebr": "4 Iyar 5789"}, {"id": "lagbaomer", "it": "Trentatreesimo giorno dell’Omer", "he": "ל״ג בעומר", "tr": "Lag baOmer", "tipo": "festa", "inizio": "2029-05-03", "fine": "2029-05-03", "ebr": "18 Iyar 5789"}, {"id": "yerushalayim", "it": "Giorno di Gerusalemme", "he": "יום ירושלים", "tr": "Yom Yerushalayim", "tipo": "ricorrenza", "inizio": "2029-05-13", "fine": "2029-05-13", "ebr": "28 Iyar 5789"}, {"id": "shavuot", "it": "Festa delle Settimane", "he": "שבועות", "tr": "Shavuot", "tipo": "festa", "inizio": "2029-05-20", "fine": "2029-05-21", "ebr": "6–7 Sivan 5789"}, {"id": "tammuz", "it": "Digiuno del 17 di Tammuz", "he": "שבעה עשר בתמוז", "tr": "Shivà Asar beTammuz", "tipo": "digiuno", "inizio": "2029-07-01", "fine": "2029-07-01", "ebr": "18 Tammuz 5789"}, {"id": "av", "it": "Digiuno del 9 di Av", "he": "תשעה באב", "tr": "Tishà beAv", "tipo": "digiuno", "inizio": "2029-07-22", "fine": "2029-07-22", "ebr": "10 Av 5789"}, {"id": "rh", "it": "Capodanno", "he": "ראש השנה", "tr": "Rosh Hashanà", "tipo": "festa", "inizio": "2029-09-10", "fine": "2029-09-11", "ebr": "1–2 Tishrì 5790"}, {"id": "gedalia", "it": "Digiuno di Ghedalià", "he": "צום גדליה", "tr": "Tzom Ghedalià", "tipo": "digiuno", "inizio": "2029-09-12", "fine": "2029-09-12", "ebr": "3 Tishrì 5790"}, {"id": "kippur", "it": "Giorno dell’Espiazione", "he": "יום כיפור", "tr": "Yom Kippur", "tipo": "festa", "inizio": "2029-09-19", "fine": "2029-09-19", "ebr": "10 Tishrì 5790"}, {"id": "sukkot", "it": "Festa delle Capanne", "he": "סוכות", "tr": "Sukkot", "tipo": "festa", "inizio": "2029-09-24", "fine": "2029-09-30", "ebr": "15–21 Tishrì 5790"}, {"id": "shemini", "it": "Ottavo giorno di chiusura", "he": "שמיני עצרת", "tr": "Sheminì Atzeret", "tipo": "festa", "inizio": "2029-10-01", "fine": "2029-10-01", "ebr": "22 Tishrì 5790"}, {"id": "simchat", "it": "Gioia della Torà", "he": "שמחת תורה", "tr": "Simchat Torà", "tipo": "festa", "inizio": "2029-10-02", "fine": "2029-10-02", "ebr": "23 Tishrì 5790"}, {"id": "chanukka", "it": "Festa delle Luci", "he": "חנוכה", "tr": "Chanukkà", "tipo": "festa", "inizio": "2029-12-02", "fine": "2029-12-09", "ebr": "25 Kislev – 3 Tevet 5790"}, {"id": "tevet", "it": "Digiuno del 10 di Tevet", "he": "עשרה בטבת", "tr": "Asarà beTevet", "tipo": "digiuno", "inizio": "2029-12-16", "fine": "2029-12-16", "ebr": "10 Tevet 5790"}, {"id": "tubishvat", "it": "Capodanno degli alberi", "he": "ט״ו בשבט", "tr": "Tu biShvat", "tipo": "festa", "inizio": "2030-01-19", "fine": "2030-01-19", "ebr": "15 Shevat 5790"}, {"id": "ester", "it": "Digiuno di Ester", "he": "תענית אסתר", "tr": "Taanìt Ester", "tipo": "digiuno", "inizio": "2030-03-18", "fine": "2030-03-18", "ebr": "13 Adar II 5790"}, {"id": "purim", "it": "Festa delle Sorti", "he": "פורים", "tr": "Purim", "tipo": "festa", "inizio": "2030-03-19", "fine": "2030-03-19", "ebr": "14 Adar II 5790"}, {"id": "pesach", "it": "Pasqua ebraica", "he": "פסח", "tr": "Pesach", "tipo": "festa", "inizio": "2030-04-18", "fine": "2030-04-25", "ebr": "15–22 Nissan 5790"}, {"id": "shoah", "it": "Giorno della Shoah e dell’Eroismo", "he": "יום השואה", "tr": "Yom HaShoah", "tipo": "ricorrenza", "inizio": "2030-04-30", "fine": "2030-04-30", "ebr": "27 Nissan 5790"}, {"id": "zikaron", "it": "Giorno del Ricordo dei caduti e delle vittime del terrorismo", "he": "יום הזיכרון", "tr": "Yom HaZikaron", "tipo": "ricorrenza", "inizio": "2030-05-07", "fine": "2030-05-07", "ebr": "4 Iyar 5790"}, {"id": "atzmaut", "it": "Giorno dell’Indipendenza d’Israele", "he": "יום העצמאות", "tr": "Yom HaAtzmaut", "tipo": "ricorrenza", "inizio": "2030-05-08", "fine": "2030-05-08", "ebr": "5 Iyar 5790"}, {"id": "lagbaomer", "it": "Trentatreesimo giorno dell’Omer", "he": "ל״ג בעומר", "tr": "Lag baOmer", "tipo": "festa", "inizio": "2030-05-21", "fine": "2030-05-21", "ebr": "18 Iyar 5790"}, {"id": "yerushalayim", "it": "Giorno di Gerusalemme", "he": "יום ירושלים", "tr": "Yom Yerushalayim", "tipo": "ricorrenza", "inizio": "2030-05-31", "fine": "2030-05-31", "ebr": "28 Iyar 5790"}, {"id": "shavuot", "it": "Festa delle Settimane", "he": "שבועות", "tr": "Shavuot", "tipo": "festa", "inizio": "2030-06-07", "fine": "2030-06-08", "ebr": "6–7 Sivan 5790"}, {"id": "tammuz", "it": "Digiuno del 17 di Tammuz", "he": "שבעה עשר בתמוז", "tr": "Shivà Asar beTammuz", "tipo": "digiuno", "inizio": "2030-07-18", "fine": "2030-07-18", "ebr": "17 Tammuz 5790"}, {"id": "av", "it": "Digiuno del 9 di Av", "he": "תשעה באב", "tr": "Tishà beAv", "tipo": "digiuno", "inizio": "2030-08-08", "fine": "2030-08-08", "ebr": "9 Av 5790"}, {"id": "rh", "it": "Capodanno", "he": "ראש השנה", "tr": "Rosh Hashanà", "tipo": "festa", "inizio": "2030-09-28", "fine": "2030-09-29", "ebr": "1–2 Tishrì 5791"}, {"id": "gedalia", "it": "Digiuno di Ghedalià", "he": "צום גדליה", "tr": "Tzom Ghedalià", "tipo": "digiuno", "inizio": "2030-09-30", "fine": "2030-09-30", "ebr": "3 Tishrì 5791"}, {"id": "kippur", "it": "Giorno dell’Espiazione", "he": "יום כיפור", "tr": "Yom Kippur", "tipo": "festa", "inizio": "2030-10-07", "fine": "2030-10-07", "ebr": "10 Tishrì 5791"}, {"id": "sukkot", "it": "Festa delle Capanne", "he": "סוכות", "tr": "Sukkot", "tipo": "festa", "inizio": "2030-10-12", "fine": "2030-10-18", "ebr": "15–21 Tishrì 5791"}, {"id": "shemini", "it": "Ottavo giorno di chiusura", "he": "שמיני עצרת", "tr": "Sheminì Atzeret", "tipo": "festa", "inizio": "2030-10-19", "fine": "2030-10-19", "ebr": "22 Tishrì 5791"}, {"id": "simchat", "it": "Gioia della Torà", "he": "שמחת תורה", "tr": "Simchat Torà", "tipo": "festa", "inizio": "2030-10-20", "fine": "2030-10-20", "ebr": "23 Tishrì 5791"}, {"id": "chanukka", "it": "Festa delle Luci", "he": "חנוכה", "tr": "Chanukkà", "tipo": "festa", "inizio": "2030-12-21", "fine": "2030-12-28", "ebr": "25 Kislev – 2 Tevet 5791"}, {"id": "tevet", "it": "Digiuno del 10 di Tevet", "he": "עשרה בטבת", "tr": "Asarà beTevet", "tipo": "digiuno", "inizio": "2031-01-05", "fine": "2031-01-05", "ebr": "10 Tevet 5791"}, {"id": "tubishvat", "it": "Capodanno degli alberi", "he": "ט״ו בשבט", "tr": "Tu biShvat", "tipo": "festa", "inizio": "2031-02-08", "fine": "2031-02-08", "ebr": "15 Shevat 5791"}, {"id": "ester", "it": "Digiuno di Ester", "he": "תענית אסתר", "tr": "Taanìt Ester", "tipo": "digiuno", "inizio": "2031-03-06", "fine": "2031-03-06", "ebr": "11 Adar 5791"}, {"id": "purim", "it": "Festa delle Sorti", "he": "פורים", "tr": "Purim", "tipo": "festa", "inizio": "2031-03-09", "fine": "2031-03-09", "ebr": "14 Adar 5791"}, {"id": "pesach", "it": "Pasqua ebraica", "he": "פסח", "tr": "Pesach", "tipo": "festa", "inizio": "2031-04-08", "fine": "2031-04-15", "ebr": "15–22 Nissan 5791"}, {"id": "shoah", "it": "Giorno della Shoah e dell’Eroismo", "he": "יום השואה", "tr": "Yom HaShoah", "tipo": "ricorrenza", "inizio": "2031-04-21", "fine": "2031-04-21", "ebr": "28 Nissan 5791"}, {"id": "zikaron", "it": "Giorno del Ricordo dei caduti e delle vittime del terrorismo", "he": "יום הזיכרון", "tr": "Yom HaZikaron", "tipo": "ricorrenza", "inizio": "2031-04-28", "fine": "2031-04-28", "ebr": "5 Iyar 5791"}, {"id": "atzmaut", "it": "Giorno dell’Indipendenza d’Israele", "he": "יום העצמאות", "tr": "Yom HaAtzmaut", "tipo": "ricorrenza", "inizio": "2031-04-29", "fine": "2031-04-29", "ebr": "6 Iyar 5791"}, {"id": "lagbaomer", "it": "Trentatreesimo giorno dell’Omer", "he": "ל״ג בעומר", "tr": "Lag baOmer", "tipo": "festa", "inizio": "2031-05-11", "fine": "2031-05-11", "ebr": "18 Iyar 5791"}, {"id": "yerushalayim", "it": "Giorno di Gerusalemme", "he": "יום ירושלים", "tr": "Yom Yerushalayim", "tipo": "ricorrenza", "inizio": "2031-05-21", "fine": "2031-05-21", "ebr": "28 Iyar 5791"}, {"id": "shavuot", "it": "Festa delle Settimane", "he": "שבועות", "tr": "Shavuot", "tipo": "festa", "inizio": "2031-05-28", "fine": "2031-05-29", "ebr": "6–7 Sivan 5791"}, {"id": "tammuz", "it": "Digiuno del 17 di Tammuz", "he": "שבעה עשר בתמוז", "tr": "Shivà Asar beTammuz", "tipo": "digiuno", "inizio": "2031-07-08", "fine": "2031-07-08", "ebr": "17 Tammuz 5791"}, {"id": "av", "it": "Digiuno del 9 di Av", "he": "תשעה באב", "tr": "Tishà beAv", "tipo": "digiuno", "inizio": "2031-07-29", "fine": "2031-07-29", "ebr": "9 Av 5791"}];
+  const MESI = { Tishri: "Tishrì", Heshvan: "Cheshvan", Kislev: "Kislev", Tevet: "Tevet", Shevat: "Shevat", "Adar I": "Adar I",
+    "Adar II": "Adar II", Adar: "Adar", Nisan: "Nissan", Iyar: "Iyar", Sivan: "Sivan", Tamuz: "Tammuz", Av: "Av", Elul: "Elul" };
+  const MESI_HE = { Tishri: "תשרי", Heshvan: "חשוון", Kislev: "כסלו", Tevet: "טבת", Shevat: "שבט", "Adar I": "אדר א׳",
+    "Adar II": "אדר ב׳", Adar: "אדר", Nisan: "ניסן", Iyar: "אייר", Sivan: "סיוון", Tamuz: "תמוז", Av: "אב", Elul: "אלול" };
+  function gematria(n) {
+    const C = ["", "ק", "ר", "ש", "ת", "תק", "תר", "תש", "תת", "תתק"], D = ["", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ"],
+          U = ["", "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט"];
+    let r = n % 100, s = C[Math.floor(n / 100)];
+    if (r === 15) s += "טו"; else if (r === 16) s += "טז"; else s += D[Math.floor(r / 10)] + U[r % 10];
+    return s.length === 1 ? s + "׳" : s.slice(0, -1) + "״" + s.slice(-1);
+  }
+  const oggi = new Date();
+  const iso = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const t = id => document.getElementById(id);
+  try {
+    const p = Object.fromEntries(new Intl.DateTimeFormat("en-u-ca-hebrew", { day: "numeric", month: "long", year: "numeric" })
+      .formatToParts(oggi).map(x => [x.type, x.value]));
+    t("oggi-it").textContent = p.day + " " + (MESI[p.month] || p.month) + " " + p.year;
+    t("oggi-he").textContent = gematria(Number(p.day)) + " ב" + (MESI_HE[p.month] || "") + " " + gematria(Number(p.year) % 1000);
+  } catch (e) { }
+  t("oggi-civile").textContent = new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(oggi);
+
+  /* feste dei prossimi dodici mesi */
+  const fmt = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "numeric", month: "long", year: "numeric" });
+  const fmtBreve = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "numeric", month: "long" });
+  const giorno = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const oggiIso = iso(oggi);
+  const limite = new Date(oggi); limite.setFullYear(limite.getFullYear() + 1);
+  const lista = FESTE.filter(f => f.fine >= oggiIso && giorno(f.inizio) <= limite);
+  t("feste").innerHTML = lista.map(f => {
+    const a = giorno(f.inizio), b = giorno(f.fine);
+    const quando = f.inizio === f.fine ? fmt.format(a)
+      : (a.getFullYear() === b.getFullYear() ? fmtBreve.format(a) : fmt.format(a)) + " – " + fmt.format(b);
+    const inCorso = f.inizio <= oggiIso && f.fine >= oggiIso;
+    return `<li class="cal-festa ${f.tipo}${inCorso ? " in-corso" : ""}">
+      <div class="cal-quando"><span class="cal-data">${quando}</span><span class="cal-data-ebr">${f.ebr}</span></div>
+      <div class="cal-nome"><span class="cal-tr">${f.tr}</span><span class="cal-it">${f.it}</span></div>
+      <div class="cal-he" lang="he" dir="rtl">${f.he}</div>
+      ${inCorso ? '<span class="cal-oggi-tag">in corso</span>' : ""}
+    </li>`;
+  }).join("");
+
+  /* Shabbat ad Alessandria, da Hebcal */
+  const ora = s => new Intl.DateTimeFormat("it-IT", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Rome" }).format(new Date(s));
+  const data = s => new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Rome" }).format(new Date(s));
+  fetch("https://www.hebcal.com/shabbat?cfg=json&geo=pos&latitude=44.9124&longitude=8.6154&tzid=Europe/Rome&b=18&M=on&lg=s")
+    .then(r => r.json())
+    .then(j => {
+      const it = j.items || [];
+      const c = it.find(x => x.category === "candles");
+      const h = it.find(x => x.category === "havdalah");
+      const p = it.find(x => x.category === "parashat");
+      if (!c || !h) throw new Error("orari mancanti");
+      t("shabbat").innerHTML =
+        (p ? `<p class="cal-parasha"><span lang="he" dir="rtl">${p.hebrew || ""}</span><span>${(p.title || "").replace(/^Parashat\s+/, "Parashà ")}</span></p>` : "") +
+        `<dl class="cal-orari">
+           <div><dt>Accensione delle candele</dt><dd><span class="cal-ora">${ora(c.date)}</span>${data(c.date)}</dd></div>
+           <div><dt>Havdalà</dt><dd><span class="cal-ora">${ora(h.date)}</span>${data(h.date)}</dd></div>
+         </dl>`;
+    })
+    .catch(() => {
+      t("shabbat").innerHTML = '<p class="cal-nota">Non riusciamo a caricare gli orari in questo momento. Li trovi su ' +
+        '<a href="https://www.hebcal.com/shabbat?geo=pos&latitude=44.9124&longitude=8.6154&tzid=Europe/Rome&b=18&M=on" rel="noopener">Hebcal</a>.</p>';
+    });
+})();
+</script>
+
+<!--piede-->
+<div id="piede-sito" class="piede" role="contentinfo">
+  <div class="piede-in">
+    <div class="colonne">
+      <div class="firma">
+        <img src="/logo.svg" alt="">
+        <div>
+          <strong>Associazione Italia Israele <span style="white-space:nowrap">• Alessandria</span></strong>
+          <span lang="he" dir="rtl">עמותת איטליה־ישראל אלסנדריה</span>
+          <small>Dialogo · Conoscenza · Collaborazione · Futuro</small>
+        </div>
+      </div>
+      <div>
+        <h4>Il sito</h4>
+        <ul>
+          <li><a href="/chi-siamo/">Chi siamo</a></li>
+          <li><a href="/attivita/">Attività</a></li>
+          <li><a href="/calendario/">Calendario ebraico</a></li>
+          <li><a href="/7ottobre/">7 ottobre</a></li>
+          <li><a href="/chai/">Diventa socio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Scrivici</h4>
+        <ul>
+          <li><a href="mailto:info@italiaisraeleal.it">info@italiaisraeleal.it</a></li>
+          <li><a href="mailto:tesseramento@italiaisraeleal.it">tesseramento@italiaisraeleal.it</a></li>
+          <li><a href="mailto:stampa@italiaisraeleal.it">stampa@italiaisraeleal.it</a></li>
+          <li><a href="/contatti/">Tutti i contatti</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Seguici</h4>
+        <div class="social-mini">
+          <a href="https://www.facebook.com/itaisral" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2.5H7.5v4H10V21h4v-6.5h3l.5-4H14V8.6c0-.3.3-.6.6-.6z"/></svg></a>
+          <a href="https://www.instagram.com/italiaisraeleal/" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="fondo-piede">
+      <span>© <span data-anno>2026</span> Associazione Italia Israele • Alessandria</span>
+      <span><a href="/chai/privacy.html">Privacy</a> · <a href="/contatti/">Contatti</a></span>
+    </div>
+  </div>
+</div>
+<script src="/barra.js" defer></script>
+<!--/piede-->
+<script src="/sito.js" defer></script>
+</body>
+</html>
