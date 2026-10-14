@@ -108,7 +108,6 @@
           <div><dt>Bonifico</dt><dd>IBAN ${esc(p.iban)}<br>intestato a ${esc(p.intestatario)}<br>causale: ${esc(p.causale)}</dd></div>
           ${p.satispay ? `<div><dt>Satispay</dt><dd><a href="${esc(p.satispay)}" rel="noopener">Paga con Satispay</a></dd></div>` : ""}
           ${p.paypal ? `<div><dt>PayPal o carta</dt><dd><a href="${esc(p.paypal)}" rel="noopener">Paga online</a></dd></div>` : ""}
-          <div><dt>Di persona</dt><dd>In contanti o con carta alla prossima cena o al prossimo incontro.</dd></div>
         </dl>
       </article>`;
     }
