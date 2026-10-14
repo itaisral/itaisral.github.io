@@ -313,3 +313,4 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 @media (max-width: 560px) { .marchio img.marchio-img { width: 257px; height: 40px; } }
 @media (max-width: 340px) { .marchio img.marchio-img { width: 206px; height: 32px; } }
 .marchio { flex: none; }
+@media (max-width: 820px) { .apertura .intestazione-mobile { width: min(358px, 100%); height: auto; aspect-ratio: 266 / 345.34; } }
