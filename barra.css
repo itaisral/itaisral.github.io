@@ -110,11 +110,7 @@
 #piede-sito li::before { content: none; }
 #piede-sito a { color: #c9d2de; text-decoration: none; border: 0; }
 #piede-sito a:hover { color: #fff; }
-#piede-sito .firma { display: flex; gap: 16px; align-items: flex-start; }
-#piede-sito .firma img { width: 64px; height: 64px; border-radius: 50%; background: var(--b-fondo); padding: 3px; flex: none; }
-#piede-sito .firma strong { display: block; color: #fff; font-weight: 400; font-size: 17px; line-height: 1.3; margin-bottom: 4px; }
-#piede-sito .firma [lang="he"] { display: block; font-size: 16px; margin-bottom: 10px; text-align: left; }
-#piede-sito .firma small { display: block; font-size: 12px; letter-spacing: .14em !important; text-transform: uppercase !important; color: #9fb0c5; line-height: 1.8; }
+#piede-sito .firma img { display: block; width: 100%; max-width: 310px; height: auto; aspect-ratio: 165.96 / 113.77; }
 #piede-sito .social-mini { display: flex; gap: 10px; margin-top: 4px; }
 #piede-sito .social-mini a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25); display: grid; place-items: center; }
 #piede-sito .social-mini a:hover { border-color: #fff; }
