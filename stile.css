@@ -307,3 +307,7 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 @media (max-width: 820px) { .intestazione-desktop { display: none; } }
 .apertura .testo-apertura { width: 100%; }
 .apertura .testo-apertura { width: 100%; }
+
+/* ---------- Marchio in Waverly nella barra ---------- */
+.marchio img.marchio-img { width: auto; height: 46px; max-width: calc(100vw - 110px); object-fit: contain; object-position: left center; }
+@media (max-width: 560px) { .marchio img.marchio-img { width: auto; height: 40px; } }
