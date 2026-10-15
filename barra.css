@@ -33,9 +33,9 @@
   background: var(--b-rosso); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
 #barra-sito .menu > a:not(.cta):hover::after, #barra-sito .menu > a[aria-current="page"]::after, #barra-sito .menu > a.attiva::after,
 #barra-sito .voce:hover .voce-btn::after, #barra-sito .voce-btn.attiva::after { transform: scaleX(1); }
-#barra-sito .menu .cta { margin-left: 10px; background: var(--b-blu); color: #fff; padding: 9px 18px; letter-spacing: .03em; }
-#barra-sito .menu .cta:hover { background: var(--b-blu-2); }
-#barra-sito .menu .cta-sost { margin-left: 10px; border: 1px solid var(--b-rosso); color: var(--b-rosso); padding: 8px 17px; letter-spacing: .03em; }
+#barra-sito .menu .cta { margin-left: 10px; border: 1px solid var(--b-blu); color: var(--b-blu); padding: 8px 17px; letter-spacing: .03em; transition: background .2s, color .2s; }
+#barra-sito .menu .cta:hover, #barra-sito .menu .cta[aria-current="page"] { background: var(--b-blu); color: #fff; }
+#barra-sito .menu .cta-sost { margin-left: 10px; border: 1px solid var(--b-rosso); color: var(--b-rosso); padding: 8px 17px; letter-spacing: .03em; transition: background .2s, color .2s; }
 #barra-sito .menu .cta-sost::after { display: none; }
 #barra-sito .menu .cta-sost:hover, #barra-sito .menu .cta-sost[aria-current="page"] { background: var(--b-rosso); color: #fff; }
 #barra-sito .menu .cta-sost + .cta { margin-left: 8px; }
@@ -106,7 +106,7 @@
   #barra-sito .menu .cta-sost { order: 2; margin: 10px 0 0; text-align: center; border-radius: 10px; padding: 12px; font-size: 17px; font-weight: 400; }
   #barra-sito .menu .cta { order: 1; }
   #barra-sito .menu .cta-sost + .cta { margin-left: 0; }
-  #barra-sito .menu .cta { margin: 18px 0 0; text-align: center; border-radius: 10px; border: 0; padding: 13px; font-weight: 400; font-size: 17px; }
+  #barra-sito .menu .cta { margin: 18px 0 0; text-align: center; border-radius: 10px; padding: 12px; font-weight: 400; font-size: 17px; }
 }
 @media (max-width: 560px) {
   #barra-sito .barra-in { padding: 0 16px; }
