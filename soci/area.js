@@ -11,9 +11,11 @@
   const giorno = s => { if (!s) return ""; const [y, m, d] = s.split("-").map(Number); return new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(y, m - 1, d)); };
   const peso = n => n > 1048576 ? (n / 1048576).toFixed(1).replace(".", ",") + " MB" : Math.max(1, Math.round(n / 1024)) + " KB";
 
-  function leggi() { try { const s = JSON.parse(localStorage.getItem(CHIAVE) || "null"); return s && s.scade > Date.now() ? s : null; } catch (e) { return null; } }
-  function salva(token, durata) { try { localStorage.setItem(CHIAVE, JSON.stringify({ token, scade: Date.now() + (durata - 60) * 1000 })); } catch (e) { } }
-  function dimentica() { try { localStorage.removeItem(CHIAVE); } catch (e) { } }
+  /* la sessione vive solo in questa scheda: chiudendo il browser si perde */
+  function leggi() { try { const s = JSON.parse(sessionStorage.getItem(CHIAVE) || "null"); return s && s.token ? s : null; } catch (e) { return null; } }
+  function salva(token) { try { sessionStorage.setItem(CHIAVE, JSON.stringify({ token })); } catch (e) { } }
+  function dimentica() { try { sessionStorage.removeItem(CHIAVE); } catch (e) { } }
+  try { localStorage.removeItem(CHIAVE); } catch (e) { }   // vecchie sessioni salvate in modo permanente
 
   async function chiama(dati) {
     const r = await fetch(SCRIPT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(dati) });
@@ -73,8 +75,8 @@
     try {
       const j = await chiama({ azione: "soci-entra", email: emailInserita, codice });
       if (!j.ok) { esito(out, j.errore || "Il codice non è corretto.", "male"); return; }
-      salva(j.token, j.durata || 21600);
-      disegna(j); mostra("area");
+      salva(j.token);
+      disegna(j); mostra("area"); attivita();
     } catch (err) {
       esito(out, "Non riusciamo a contattare il server. Riprova fra poco.", "male");
     } finally { b.disabled = false; }
@@ -83,9 +85,57 @@
   $("cambia").addEventListener("click", () => { mostra("email"); $("email").focus(); });
   $("rimanda").addEventListener("click", () => { mostra("email"); $("email").value = emailInserita; esito($("esito-email"), "Completa la verifica e chiedi un codice nuovo."); });
 
-  $("esci").addEventListener("click", async () => {
-    const s = leggi(); dimentica(); mostra("email");
+  async function esci(motivo) {
+    const s = leggi(); dimentica(); chiudiAvviso(); mostra("email");
+    if (motivo) esito($("esito-email"), motivo);
     if (s) try { await chiama({ azione: "soci-esci", token: s.token }); } catch (e) { }
+  }
+  $("esci").addEventListener("click", () => esci());
+
+  /* ---------- inattività: avviso a 5 minuti, uscita a 6 ---------- */
+  const AVVISO = 5 * 60 * 1000, USCITA = 6 * 60 * 1000, RINNOVO = 2 * 60 * 1000;
+  let ultima = Date.now(), ultimoRinnovo = Date.now(), avviso = null;
+  function inArea() { return !$("area").hidden && !!leggi(); }
+  function attivita() {
+    if (avviso) return;                       // con l'avviso aperto conta solo «Continua»
+    ultima = Date.now();
+    if (inArea() && Date.now() - ultimoRinnovo > RINNOVO) rinnova();
+  }
+  async function rinnova() {
+    const s = leggi(); if (!s) return;
+    ultimoRinnovo = Date.now();
+    try { const j = await chiama({ azione: "soci-rinnova", token: s.token }); if (j.scaduta) esci("La sessione è scaduta. Chiedi un codice nuovo per rientrare."); } catch (e) { }
+  }
+  ["pointerdown", "keydown", "scroll", "touchstart", "mousemove"].forEach(ev =>
+    document.addEventListener(ev, attivita, { passive: true }));
+  function apriAvviso() {
+    avviso = document.createElement("div");
+    avviso.className = "avviso-sessione";
+    avviso.setAttribute("role", "alertdialog"); avviso.setAttribute("aria-modal", "true");
+    avviso.innerHTML = `<div class="as-box">
+      <h3>Sei ancora qui?</h3>
+      <p>Per la tua sicurezza usciamo dall’area soci fra <b id="as-secondi">60</b> secondi.</p>
+      <div class="as-azioni"><button type="button" class="bottone" id="as-continua">Continua</button>
+      <button type="button" class="bottone chiaro" id="as-esci">Esci</button></div></div>`;
+    document.body.appendChild(avviso);
+    $("as-continua").addEventListener("click", () => { chiudiAvviso(); ultima = Date.now(); rinnova(); });
+    $("as-esci").addEventListener("click", () => esci());
+    $("as-continua").focus();
+  }
+  function chiudiAvviso() { if (avviso) { avviso.remove(); avviso = null; } }
+  setInterval(() => {
+    if (!inArea()) { chiudiAvviso(); return; }
+    const ferma = Date.now() - ultima;
+    if (ferma >= USCITA) { esci("Sei uscito dall’area soci dopo sei minuti di inattività."); return; }
+    if (ferma >= AVVISO && !avviso) apriAvviso();
+    if (avviso) { const el = $("as-secondi"); if (el) el.textContent = Math.max(0, Math.ceil((USCITA - ferma) / 1000)); }
+  }, 1000);
+
+  /* chiudendo la pagina o il browser la sessione si chiude anche sul server */
+  window.addEventListener("pagehide", () => {
+    const s = leggi(); if (!s) return;
+    dimentica();
+    try { navigator.sendBeacon(SCRIPT_URL, JSON.stringify({ azione: "soci-esci", token: s.token })); } catch (e) { }
   });
 
   /* ---------- area ---------- */
@@ -189,7 +239,7 @@
     mostra("attesa");
     try {
       const j = await chiama({ azione: "soci-dati", token: s.token });
-      if (j.ok) { disegna(j); mostra("area"); return; }
+      if (j.ok) { disegna(j); mostra("area"); ultima = ultimoRinnovo = Date.now(); return; }
       dimentica();
     } catch (e) { }
     mostra("email");
