@@ -317,23 +317,18 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .area-testa h2 { margin: 0; }
 .tessere { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 20px; }
 .tessere-nota { margin: 12px 0 48px; }
-.tessera-carta { background: linear-gradient(135deg, var(--blu) 0%, var(--blu-notte) 100%); color: #fff; border-radius: 18px; padding: 24px 26px;
-  box-shadow: 0 22px 44px rgba(24, 48, 78, .22); position: relative; overflow: hidden; aspect-ratio: 1.586; display: flex; flex-direction: column; justify-content: space-between; }
-.tessera-carta::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .08); }
-.tessera-carta.fondatore { background: linear-gradient(135deg, #1d3a5e 0%, #0f2036 100%); }
-.tc-testa { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
-.tc-testa img { height: 54px; width: 54px; display: block; flex: none; }
-.tc-ass { display: block; font-size: 13.5px; letter-spacing: .04em; color: #fff; }
-.tc-he { display: block; font-family: "Frank Ruhl Libre", serif; font-size: 14.5px; color: #c9d2de; text-align: left; }
-.tc-corpo { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
-.tc-corpo p { margin: 0; }
-.tc-etichetta { font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: #e6a59e; }
-.tc-numero { font-size: 46px; line-height: 1.05; letter-spacing: .04em; font-weight: 300; }
-.tc-nome { font-size: 19px; }
-.tc-qualifica { font-size: 14px; color: #c9d2de; }
-.tc-qualifica [lang="he"] { font-family: "Frank Ruhl Libre", serif; font-size: 17px; margin-left: 6px; color: #f2e3ce; }
-.tc-validita { font-size: 12.5px; color: #9fb0c5; margin-top: 4px !important; }
-.tc-qr { flex: none; width: 112px; height: 112px; background: #fff; border-radius: 10px; padding: 8px; }
+.tessera-spazio { container-type: inline-size; }
+.tessera-carta { position: relative; aspect-ratio: 85.6 / 54; border-radius: 3.7cqw; overflow: hidden; color: #fff;
+  background: #11273d url(/soci/tessera-fondo.svg) center / 100% 100% no-repeat; box-shadow: 0 22px 44px rgba(24, 48, 78, .22); }
+.tc-dati { position: absolute; left: 5.84cqw; bottom: 5.84cqw; }
+.tc-dati p { margin: 0; line-height: 1.15; }
+.tc-etichetta { font-size: 2.7cqw; letter-spacing: .2em; text-transform: uppercase; color: #e6a59e; }
+.tc-numero { font-size: 10.5cqw; font-weight: 300; letter-spacing: .04em; line-height: 1.05 !important; }
+.tc-nome { font-size: 4.6cqw; margin-top: .6cqw !important; }
+.tc-qualifica { font-size: 3.3cqw; color: #c9d2de; }
+.tc-qualifica [lang="he"] { font-family: "Frank Ruhl Libre", serif; font-size: 3.9cqw; margin-left: 1.2cqw; color: #f2e3ce; }
+.tc-validita { font-size: 2.9cqw; color: #9fb0c5; margin-top: .6cqw !important; }
+.tc-qr { position: absolute; right: 5.84cqw; bottom: 5.84cqw; width: 25.7cqw; height: 25.7cqw; background: #fff; border-radius: 1.8cqw; padding: 1.8cqw; box-sizing: border-box; }
 .tc-qr svg { width: 100%; height: 100%; display: block; }
 .tessera-attesa { background: #fff; border: 1.5px dashed #cfc6b6; border-radius: 18px; padding: 24px 26px; }
 .tessera-attesa h3 { margin-bottom: 8px; }
@@ -367,11 +362,6 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 }
 @media (max-width: 560px) {
   .pannello-accesso { padding: 22px 18px; }
-  .tessera-carta { aspect-ratio: auto; padding: 20px; gap: 18px; }
-  .tc-testa img { height: 46px; width: 46px; }
-  .tc-ass { font-size: 12.5px; }
-  .tc-numero { font-size: 38px; }
-  .tc-qr { width: 96px; height: 96px; }
   .dati-socio div { grid-template-columns: 1fr; gap: 0; }
 }
 

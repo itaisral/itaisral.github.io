@@ -161,20 +161,16 @@
         </dl>
       </article>`;
     }
-    return `<article class="tessera-carta${fondatore ? " fondatore" : ""}">
-      <div class="tc-testa"><img src="/soci/logo-chiaro.svg" alt="">
-        <div><span class="tc-ass">Associazione Italia Israele • Alessandria</span><span class="tc-he" lang="he" dir="rtl">עמותת איטליה־ישראל אלסנדריה</span></div></div>
-      <div class="tc-corpo">
-        <div>
-          <p class="tc-etichetta">Tessera ${esc(t.anno)}</p>
-          <p class="tc-numero">${esc(t.numero)}</p>
-          <p class="tc-nome">${esc(t.nome)} ${esc(t.cognome)}</p>
-          <p class="tc-qualifica">${esc(t.qualifica)}${fondatore ? ' <span lang="he" dir="rtl">מייסד</span>' : ""}</p>
-          <p class="tc-validita">Valida fino al 31 dicembre ${esc(t.anno)}</p>
-        </div>
-        ${t.qr ? `<div class="tc-qr" title="Da mostrare agli incontri">${qr(t.qr)}</div>` : ""}
+    return `<div class="tessera-spazio"><article class="tessera-carta" aria-label="Tessera dell’Associazione Italia Israele • Alessandria">
+      <div class="tc-dati">
+        <p class="tc-etichetta">Tessera ${esc(t.anno)}</p>
+        <p class="tc-numero">${esc(t.numero)}</p>
+        <p class="tc-nome">${esc(t.nome)} ${esc(t.cognome)}</p>
+        <p class="tc-qualifica">${esc(t.qualifica)}${fondatore ? ' <span lang="he" dir="rtl">מייסד</span>' : ""}</p>
+        <p class="tc-validita">Valida fino al 31 dicembre ${esc(t.anno)}</p>
       </div>
-    </article>`;
+      ${t.qr ? `<div class="tc-qr" title="Da mostrare agli incontri">${qr(t.qr)}</div>` : ""}
+    </article></div>`;
   }
 
   function disegna(d) {
