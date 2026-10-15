@@ -126,11 +126,9 @@
 #piede-sito a { color: #c9d2de; text-decoration: none; border: 0; }
 #piede-sito a:hover { color: #fff; }
 #piede-sito .firma img { display: block; width: 100%; max-width: 240px; height: auto; aspect-ratio: 165.96 / 113.77; }
-#piede-sito .piede-azioni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-#piede-sito .piede-bottone { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .45); color: #fff; text-decoration: none; font-size: 15px; letter-spacing: .03em; }
-#piede-sito .piede-bottone:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
-#piede-sito .piede-bottone.pieno { background: #fff; color: var(--b-blu); border-color: #fff; }
-#piede-sito .piede-bottone.pieno:hover { background: var(--b-crema); border-color: var(--b-crema); }
+#piede-sito .piede-azioni { display: flex; flex-direction: column; align-items: stretch; gap: 10px; margin-top: 26px; max-width: 200px; }
+#piede-sito .piede-bottone { display: flex; justify-content: center; padding: 9px 18px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .55); color: #fff; text-decoration: none; font-size: 15px; letter-spacing: .03em; transition: background .2s, color .2s, border-color .2s; }
+#piede-sito .piede-bottone:hover { background: #fff; border-color: #fff; color: var(--b-blu); }
 #piede-sito .social-mini { display: flex; gap: 10px; margin-top: 4px; }
 #piede-sito .social-mini a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25); display: grid; place-items: center; }
 #piede-sito .social-mini a:hover { border-color: #fff; }
