@@ -48,34 +48,40 @@
   }).join("");
 
   /* ---------- Shabbat ad Alessandria ----------
-     Posizione del sole con le formule astronomiche standard (le stesse di SunCalc).
-     Tramonto: sole a −0,833° (bordo superiore, con la rifrazione). Havdalà: sole a −8,5°, uscita di tre stelle. */
-  const rad = Math.PI / 180, dayMs = 864e5, J1970 = 2440588, J2000 = 2451545, J0 = 0.0009, obl = rad * 23.4397;
-  const toDays = d => d.valueOf() / dayMs - 0.5 + J1970 - J2000;
-  const fromJulian = j => new Date((j + 0.5 - J1970) * dayMs);
-  function quandoIlSole(data, alt) {
-    const lw = rad * -LON, phi = rad * LAT, d = toDays(data);
-    const n = Math.round(d - J0 - lw / (2 * Math.PI));
-    const ds = J0 + lw / (2 * Math.PI) + n;
-    const M = rad * (357.5291 + 0.98560028 * ds);
-    const C = rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M));
-    const L = M + C + rad * 102.9372 + Math.PI;
-    const dec = Math.asin(Math.sin(0) * Math.cos(obl) + Math.cos(0) * Math.sin(obl) * Math.sin(L));
-    const w = Math.acos((Math.sin(alt * rad) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec)));
-    const a = J0 + (w + lw) / (2 * Math.PI) + n;
-    return fromJulian(J2000 + a + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L));
+     Posizione del sole con l'algoritmo della NOAA (lo stesso usato da Hebcal).
+     Candele: 18 minuti prima del tramonto (sole a 90,833° dallo zenit), al minuto per difetto.
+     Havdalà: sole a 8,5° sotto l'orizzonte, uscita di tre stelle, al minuto più vicino. */
+  const r = Math.PI / 180;
+  function quandoIlSole(data, zenit) {
+    const jd0 = Date.UTC(data.getFullYear(), data.getMonth(), data.getDate()) / 864e5 + 2440587.5;
+    let min = 720 - 4 * LON;
+    for (let i = 0; i < 3; i++) {
+      const T = (jd0 + min / 1440 - 2451545) / 36525;
+      const L0 = (280.46646 + T * (36000.76983 + T * 0.0003032)) % 360;
+      const M = 357.52911 + T * (35999.05029 - 0.0001537 * T);
+      const e = 0.016708634 - T * (0.000042037 + 0.0000001267 * T);
+      const C = Math.sin(M * r) * (1.914602 - T * (0.004817 + 0.000014 * T)) + Math.sin(2 * M * r) * (0.019993 - 0.000101 * T) + Math.sin(3 * M * r) * 0.000289;
+      const om = 125.04 - 1934.136 * T;
+      const lam = L0 + C - 0.00569 - 0.00478 * Math.sin(om * r);
+      const eps = 23 + (26 + (21.448 - T * (46.815 + T * (0.00059 - T * 0.001813))) / 60) / 60 + 0.00256 * Math.cos(om * r);
+      const dec = Math.asin(Math.sin(eps * r) * Math.sin(lam * r));
+      const y = Math.tan(eps * r / 2) ** 2;
+      const eqt = 4 / r * (y * Math.sin(2 * L0 * r) - 2 * e * Math.sin(M * r) + 4 * e * y * Math.sin(M * r) * Math.cos(2 * L0 * r) - 0.5 * y * y * Math.sin(4 * L0 * r) - 1.25 * e * e * Math.sin(2 * M * r));
+      const ha = Math.acos(Math.cos(zenit * r) / (Math.cos(LAT * r) * Math.cos(dec)) - Math.tan(LAT * r) * Math.tan(dec)) / r;
+      min = 720 - 4 * LON - eqt + 4 * ha;
+    }
+    return new Date(Date.UTC(data.getFullYear(), data.getMonth(), data.getDate()) + min * 60000);
   }
-  const aMezzogiorno = d => new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12);
   // venerdì di questo Shabbat: il sabato vale fino all'Havdalà
   const venerdi = new Date(oggi.getFullYear(), oggi.getMonth(), oggi.getDate());
   const gs = oggi.getDay();
   if (gs === 6) {
     venerdi.setDate(venerdi.getDate() - 1);
-    if (oggi > quandoIlSole(aMezzogiorno(oggi), -8.5)) venerdi.setDate(venerdi.getDate() + 7);
+    if (oggi > quandoIlSole(oggi, 98.5)) venerdi.setDate(venerdi.getDate() + 7);
   } else venerdi.setDate(venerdi.getDate() + ((5 - gs + 7) % 7));
   const sabato = new Date(venerdi); sabato.setDate(sabato.getDate() + 1);
-  const candele = new Date(quandoIlSole(aMezzogiorno(venerdi), -0.833).getTime() - 18 * 60000);
-  const havdala = quandoIlSole(aMezzogiorno(sabato), -8.5);
+  const candele = new Date(quandoIlSole(venerdi, 90.833).getTime() - 18 * 60000);
+  const havdala = new Date(quandoIlSole(sabato, 98.5).getTime() + 30000);
   const ora = d => new Intl.DateTimeFormat("it-IT", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Rome" }).format(d);
   const data = d => new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Rome" }).format(d);
   const p = PARASHOT[iso(sabato)];
