@@ -410,3 +410,9 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .seguici a svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
 .seguici .handle { justify-self: end; font-size: 14.5px; color: var(--grigio); }
 .seguici a:hover .handle { color: var(--rosso); }
+.intro .cal-criteri { max-width: 680px; margin: 0; font-size: 15px; line-height: 1.6; color: var(--grigio); }
+.intro .cal-criteri a { color: var(--blu-2); }
+.schede.tre { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1020px) { .schede.tre { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .schede.tre { grid-template-columns: 1fr; } }
+#ricorrenze { padding-top: 24px; }
