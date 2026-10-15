@@ -516,3 +516,5 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
   .attesa-azioni { flex-wrap: nowrap; gap: 8px; }
   .attesa-azioni .bottone { padding: 10px 12px; font-size: 14px; letter-spacing: .02em; border-radius: 8px; white-space: nowrap; }
 }
+.notizia-testo h2 { font-size: clamp(24px, 3vw, 30px); margin: 40px 0 14px; }
+.titolo-notizia .punto { font-size: .55em; vertical-align: .25em; color: var(--rosso); }
