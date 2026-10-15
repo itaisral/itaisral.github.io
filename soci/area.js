@@ -200,7 +200,7 @@
       <div><dt>Email</dt><dd>${esc(r.email)}</dd></div>
       ${r.cellulare ? `<div><dt>Cellulare</dt><dd>${esc(r.cellulare)}</dd></div>` : ""}
       ${r.indirizzo ? `<div><dt>Indirizzo</dt><dd>${esc(r.indirizzo)}</dd></div>` : ""}
-      <div><dt>Consensi</dt><dd>Albo dei soci: ${sn(consensi.albo)} · Immagini: ${sn(consensi.immagini)} · Notizie per email: ${sn(consensi.newsletter)}</dd></div>`;
+      <div><dt>Consensi</dt><dd>Immagini: ${sn(consensi.immagini)} · Notizie per email: ${sn(consensi.newsletter)}</dd></div>`;
   }
 
   /* scaricamento di ricevute e documenti */
