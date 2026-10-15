@@ -501,3 +501,4 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .testo-social { width: 100%; font: inherit; font-size: 15px; line-height: 1.55; padding: 14px; border: 1px solid var(--linea); border-radius: 10px; background: #fff; color: var(--testo); margin: 4px 0 12px; resize: vertical; }
 .social-servizio .piccolo { font-size: 14px; color: var(--grigio); margin-bottom: 6px; }
 @media (max-width: 820px) { .social-servizio { grid-template-columns: 1fr; gap: 32px; } }
+.scarica-social { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
