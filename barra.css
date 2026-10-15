@@ -36,6 +36,12 @@
 #barra-sito .menu .cta { margin-left: 10px; background: var(--b-blu); color: #fff; padding: 9px 18px; letter-spacing: .03em; }
 #barra-sito .menu .cta:hover { background: var(--b-blu-2); }
 
+/* icone social nella barra */
+#barra-sito .menu-social { display: flex; align-items: center; gap: 2px; margin-left: 8px; padding-left: 10px; border-left: 1px solid var(--b-linea); }
+#barra-sito .menu-social a { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border-radius: 50%; color: var(--b-blu); }
+#barra-sito .menu-social a:hover { color: var(--b-rosso); }
+#barra-sito .menu-social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+
 /* sottomenu */
 #barra-sito .voce { position: relative; }
 #barra-sito .sotto { position: absolute; top: calc(100% + 10px); left: 0; min-width: 210px; padding: 8px; background: #fff; border: 1px solid var(--b-linea);
@@ -69,7 +75,7 @@
 #barra-sito .menu-btn[aria-expanded="true"] > span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 #barra-sito .sr, #piede-sito .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-@media (max-width: 1180px) {
+@media (max-width: 1300px) {
   #barra-sito .menu-btn { display: block; }
   #barra-sito .menu { position: fixed; top: var(--b-altezza); left: 0; right: 0; max-height: calc(100vh - var(--b-altezza)); overflow-y: auto;
     flex-direction: column; align-items: stretch; gap: 0; background: var(--b-fondo); border-bottom: 1px solid var(--b-linea);
@@ -91,6 +97,8 @@
   #barra-sito .eventi-griglia { columns: 1; }
   #barra-sito .evento, #barra-sito .sotto a.evento { padding: 7px 0; }
   #barra-sito .eventi-nota { margin: 8px 0 0; }
+  #barra-sito .menu-social { margin: 14px 0 0; padding: 0; border: 0; gap: 8px; }
+  #barra-sito .menu-social a { width: 42px; height: 42px; border: 1px solid var(--b-linea); }
   #barra-sito .menu .cta { margin: 18px 0 0; text-align: center; border-radius: 10px; border: 0; padding: 13px; font-weight: 400; font-size: 17px; }
 }
 @media (max-width: 560px) {
