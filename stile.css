@@ -495,3 +495,9 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .social-laterale a { display: flex; align-items: center; gap: 12px; padding: 10px 0; text-decoration: none; color: var(--blu) !important; }
 .social-laterale a:hover { color: var(--rosso) !important; }
 .social-laterale svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.social-servizio { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 48px; align-items: start; }
+.social-anteprima { margin: 0 0 16px; border-radius: 14px; overflow: hidden; border: 1px solid var(--linea); }
+.social-anteprima img { width: 100%; height: auto; display: block; }
+.testo-social { width: 100%; font: inherit; font-size: 15px; line-height: 1.55; padding: 14px; border: 1px solid var(--linea); border-radius: 10px; background: #fff; color: var(--testo); margin: 4px 0 12px; resize: vertical; }
+.social-servizio .piccolo { font-size: 14px; color: var(--grigio); margin-bottom: 6px; }
+@media (max-width: 820px) { .social-servizio { grid-template-columns: 1fr; gap: 32px; } }
