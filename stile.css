@@ -393,3 +393,7 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .ev-link:hover svg { transform: translateX(3px); }
 @media (max-width: 980px) { .eventi-lista { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .eventi-lista { grid-template-columns: 1fr; } .evento-scheda { padding: 22px 20px 20px; } .evento-scheda::before { left: 20px; right: 20px; } }
+
+/* contatti: i riquadri portano al modulo */
+.campo.evidenzia select { animation: evidenzia 1.6s ease .5s; }
+@keyframes evidenzia { 0%, 100% { box-shadow: 0 0 0 0 rgba(177, 34, 24, 0); } 30% { box-shadow: 0 0 0 4px rgba(177, 34, 24, .25); border-color: var(--rosso); } }

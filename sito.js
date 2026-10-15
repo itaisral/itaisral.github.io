@@ -17,6 +17,17 @@
   /* modulo Scrivici */
   const form = document.querySelector("form.scrivici");
   if (!form) return;
+
+  // i riquadri dei recapiti portano al modulo con l'argomento già scelto
+  document.querySelectorAll(".recapito[data-argomento]").forEach(a => a.addEventListener("click", e => {
+    const scelta = form.elements.argomento;
+    if (![...scelta.options].some(o => o.value === a.dataset.argomento)) return;
+    e.preventDefault();
+    scelta.value = a.dataset.argomento;
+    document.getElementById("scrivici").scrollIntoView({ behavior: "smooth", block: "start" });
+    const campo = scelta.closest(".campo");
+    campo.classList.remove("evidenzia"); void campo.offsetWidth; campo.classList.add("evidenzia");
+  }));
   const esito = form.querySelector(".esito");
   const invia = form.querySelector("button[type=submit]");
   const val = n => (form.elements[n].value || "").trim();
