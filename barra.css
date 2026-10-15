@@ -31,7 +31,7 @@
 #barra-sito .voce-btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .2s; }
 #barra-sito .menu > a:not(.cta)::after, #barra-sito .voce-btn::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 1.5px;
   background: var(--b-rosso); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
-#barra-sito .menu > a:not(.cta):hover::after, #barra-sito .menu > a[aria-current="page"]::after,
+#barra-sito .menu > a:not(.cta):hover::after, #barra-sito .menu > a[aria-current="page"]::after, #barra-sito .menu > a.attiva::after,
 #barra-sito .voce:hover .voce-btn::after, #barra-sito .voce-btn.attiva::after { transform: scaleX(1); }
 #barra-sito .menu .cta { margin-left: 10px; background: var(--b-blu); color: #fff; padding: 9px 18px; letter-spacing: .03em; }
 #barra-sito .menu .cta:hover { background: var(--b-blu-2); }
@@ -79,7 +79,7 @@
   #barra-sito .menu > a, #barra-sito .voce-btn { width: 100%; text-align: left; justify-content: space-between; font-size: 19px; font-weight: 300;
     padding: 14px 0; border-bottom: 1px solid var(--b-linea); border-radius: 0; }
   #barra-sito .menu > a::after, #barra-sito .voce-btn::after { display: none; }
-  #barra-sito .menu > a[aria-current="page"], #barra-sito .voce-btn.attiva { color: var(--b-rosso); }
+  #barra-sito .menu > a[aria-current="page"], #barra-sito .menu > a.attiva, #barra-sito .voce-btn.attiva { color: var(--b-rosso); }
   #barra-sito .voce-btn svg { width: 16px; height: 16px; }
   #barra-sito .voce:hover .voce-btn svg { transform: none; }
   #barra-sito .voce.aperta .voce-btn svg { transform: rotate(180deg); }

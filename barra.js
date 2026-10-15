@@ -34,5 +34,10 @@
   const segna = () => barra.classList.toggle("scorsa", window.scrollY > 8);
   window.addEventListener("scroll", segna, { passive: true }); segna();
 
+  // I collegamenti che portano fuori dal sito si aprono in una nuova scheda
+  document.querySelectorAll("a[href^='http']").forEach(a => {
+    if (a.host !== location.host) { a.target = "_blank"; a.rel = "noopener"; }
+  });
+
   document.querySelectorAll("#piede-sito [data-anno]").forEach(el => el.textContent = new Date().getFullYear());
 })();
