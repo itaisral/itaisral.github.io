@@ -402,9 +402,10 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .recapito { position: relative; }
 .recapito .giu { position: absolute; top: 26px; right: 22px; width: 20px; height: 20px; fill: none; stroke: var(--grigio); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s, stroke .25s; }
 .recapito:hover .giu { stroke: var(--rosso); transform: translateY(3px); }
-.seguici { margin-top: 32px; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 20px; background: #fff; display: grid; gap: 4px; max-width: 360px; }
-.seguici .occhiello { margin-bottom: 8px; }
-.seguici a { display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 12px; padding: 8px 0; text-decoration: none; color: var(--blu); border-top: 1px solid var(--linea); }
+.seguici { margin-top: 56px; display: grid; gap: 0; max-width: 440px; }
+.seguici .occhiello { justify-self: start; }
+.seguici h2 { margin-bottom: 14px; }
+.seguici a { display: grid; grid-template-columns: 22px auto 1fr; align-items: center; gap: 12px; padding: 12px 0; text-decoration: none; color: var(--blu); border-top: 1px solid var(--linea); }
 .seguici a:first-of-type { border-top: 0; }
 .seguici a svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
 .seguici .handle { justify-self: end; font-size: 14.5px; color: var(--grigio); }
