@@ -125,7 +125,7 @@
 #piede-sito li::before { content: none; }
 #piede-sito a { color: #c9d2de; text-decoration: none; border: 0; }
 #piede-sito a:hover { color: #fff; }
-#piede-sito .firma img { display: block; width: 100%; max-width: 240px; height: auto; aspect-ratio: 165.96 / 113.77; }
+#piede-sito .firma img { display: block; width: 140px; max-width: 100%; height: auto; aspect-ratio: 76.3 / 77; }
 #piede-sito .piede-azioni { display: flex; flex-direction: column; align-items: stretch; gap: 10px; margin-top: 26px; max-width: 200px; }
 #piede-sito .piede-bottone { display: flex; justify-content: center; padding: 9px 18px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, .55); color: #fff; text-decoration: none; font-size: 15px; letter-spacing: .03em; transition: background .2s, color .2s, border-color .2s; }
 #piede-sito .piede-bottone:hover { background: #fff; border-color: #fff; color: var(--b-blu); }
@@ -133,8 +133,11 @@
 #piede-sito .social-mini a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25); display: grid; place-items: center; }
 #piede-sito .social-mini a:hover { border-color: #fff; }
 #piede-sito .social-mini svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
-#piede-sito .fondo-piede { border-top: 1px solid rgba(255, 255, 255, .12); padding: 22px 0 28px; display: flex; flex-wrap: wrap; gap: 8px 24px;
-  justify-content: space-between; font-size: 13.5px; color: #9fb0c5; }
+#piede-sito .fondo-piede { border-top: 1px solid rgba(255, 255, 255, .12); padding: 22px 0 28px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px 24px;
+  font-size: 13.5px; color: #9fb0c5; }
+#piede-sito .fondo-piede > :last-child { justify-self: end; }
+#piede-sito .fondo-piede .piede-motto { color: #e8dcc6; letter-spacing: .08em; text-align: center; }
+@media (max-width: 820px) { #piede-sito .fondo-piede { grid-template-columns: 1fr; justify-items: center; text-align: center; } #piede-sito .fondo-piede > :last-child { justify-self: center; } #piede-sito .fondo-piede .piede-motto { order: -1; } }
 #piede-sito .fondo-piede a { color: #9fb0c5; }
 @media (max-width: 1020px) { #piede-sito .colonne { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { #piede-sito .piede-in { padding: 0 16px; } #piede-sito .colonne { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 560px) { #piede-sito .piede-in { padding: 0 16px; } #piede-sito .colonne { grid-template-columns: 1fr; gap: 32px; } #piede-sito .firma img { width: 120px; } }
