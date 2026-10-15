@@ -20,16 +20,16 @@
   background: rgba(251, 248, 242, .94); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; font-size: 16px; line-height: 1.4; color: var(--b-blu); text-align: left; direction: ltr; }
 #barra-sito.scorsa { border-bottom-color: var(--b-linea); box-shadow: 0 4px 18px rgba(24, 48, 78, .06); }
-#barra-sito .barra-in { max-width: 1140px; height: 100%; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; }
+#barra-sito .barra-in { max-width: 1140px; height: 100%; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 6px; }
 #barra-sito .marchio { flex: none; display: flex; align-items: center; margin-right: auto; text-decoration: none; border: 0; }
 #barra-sito .marchio img { display: block; width: 296px; height: 46px; max-width: none; }
 
 #barra-sito .menu { display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; }
 #barra-sito .menu a, #barra-sito .voce-btn { color: var(--b-blu); text-decoration: none; font-weight: 400; font-size: 14.5px; line-height: 1.3;
-  padding: 8px 8px; border-radius: 8px; position: relative; background: none; border: 0; cursor: pointer; margin: 0; white-space: nowrap; }
+  padding: 8px 7px; border-radius: 8px; position: relative; background: none; border: 0; cursor: pointer; margin: 0; white-space: nowrap; }
 #barra-sito .voce-btn { display: inline-flex; align-items: center; gap: 5px; }
 #barra-sito .voce-btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; transition: transform .2s; }
-#barra-sito .menu > a:not(.cta)::after, #barra-sito .voce-btn::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: 3px; height: 1.5px;
+#barra-sito .menu > a:not(.cta)::after, #barra-sito .voce-btn::after { content: ""; position: absolute; left: 7px; right: 7px; bottom: 3px; height: 1.5px;
   background: var(--b-rosso); transform: scaleX(0); transform-origin: left; transition: transform .25s; }
 #barra-sito .menu > a:not(.cta):hover::after, #barra-sito .menu > a[aria-current="page"]::after, #barra-sito .menu > a.attiva::after,
 #barra-sito .voce:hover .voce-btn::after, #barra-sito .voce-btn.attiva::after { transform: scaleX(1); }
