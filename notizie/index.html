@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Frank+Ruhl+Libre:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/barra.css?v=20261015u">
-<link rel="stylesheet" href="/stile.css?v=20261015u">
+<link rel="stylesheet" href="/barra.css?v=20261015v">
+<link rel="stylesheet" href="/stile.css?v=20261015v">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -71,29 +71,18 @@
             <p>L’Associazione Italia Israele • Alessandria promuove la conoscenza, il dialogo e la collaborazione tra l’Italia e lo Stato di Israele. Organizza incontri con autori, iniziative culturali, proposte per le scuole e per i giovani, e lavora sulla memoria e sulla storia ebraica della città.</p>
           </details>
         </div>
-        <div class="riquadro-laterale compare facebook" id="facebook">
-          <p class="occhiello">Su Facebook</p>
-          <p>Pubblichiamo ogni giorno sulla nostra pagina. I post si caricano da Facebook solo se lo chiedi tu.</p>
-          <button class="bottone chiaro" type="button" data-fb>Mostra i post</button>
-          <div class="fb-contenitore" hidden></div>
-          <p class="piccolo">Premendo il pulsante il tuo browser si collega a Facebook, che può raccogliere dati secondo la propria informativa. <a href="/chai/privacy.html#facebook">Privacy</a>.</p>
+        <div class="riquadro-laterale compare">
+          <p class="occhiello">Seguici</p>
+          <p>Ogni giorno pubblichiamo aggiornamenti, foto e commenti sui nostri canali.</p>
+          <ul class="social-laterale">
+            <li><a href="https://www.facebook.com/itaisral" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2.5H7.5v4H10V21h4v-6.5h3l.5-4H14V8.6c0-.3.3-.6.6-.6z"/></svg><span>Facebook</span></a></li>
+            <li><a href="https://www.instagram.com/italiaisraeleal/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg><span>Instagram</span></a></li>
+          </ul>
         </div>
       </aside>
     </div>
   </section>
 </main>
-
-<script>
-document.querySelectorAll("[data-fb]").forEach(function (b) {
-  b.addEventListener("click", function () {
-    var box = b.parentNode.querySelector(".fb-contenitore");
-    var w = Math.min(500, Math.max(180, Math.floor(box.parentNode.clientWidth - 2)));
-    box.innerHTML = '<iframe title="Post della pagina Facebook dell’associazione" src="https://www.facebook.com/plugins/page.php?href=' +
-      encodeURIComponent("https://www.facebook.com/itaisral") + '&tabs=timeline&width=' + w + '&height=640&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false" width="' + w + '" height="640" style="border:none;overflow:hidden;display:block" scrolling="no" frameborder="0" allow="encrypted-media" loading="lazy"></iframe>';
-    box.hidden = false; b.hidden = true;
-  });
-});
-</script>
 
 <!--piede-->
 <div id="piede-sito" class="piede" role="contentinfo">
@@ -139,8 +128,8 @@ document.querySelectorAll("[data-fb]").forEach(function (b) {
     </div>
   </div>
 </div>
-<script src="/barra.js?v=20261015u" defer></script>
+<script src="/barra.js?v=20261015v" defer></script>
 <!--/piede-->
-<script src="/sito.js?v=20261015u" defer></script>
+<script src="/sito.js?v=20261015v" defer></script>
 </body>
 </html>
