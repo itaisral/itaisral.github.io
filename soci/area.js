@@ -359,7 +359,9 @@
       if (j.scaduta) { chiudiScanner(); esci("La sessione è scaduta. Chiedi un codice nuovo per rientrare."); return; }
       if (!j.ok) { mostraEsito("no", "Controllo non riuscito", j.errore || ""); return; }
       if (!j.valida) { mostraEsito("no", "Tessera non valida", j.motivo || ""); return; }
-      mostraEsito("si", "Tessera valida", "Tessera " + j.numero + " · " + j.anno + " · " + (j.qualifica || ""), j.nome);
+      const dettaglio = "Tessera " + j.numero + " · " + j.anno + " · " + (j.qualifica || "");
+      if (j.gia) { if (navigator.vibrate) navigator.vibrate([200, 100, 200]); mostraEsito("no", "Già entrata alle " + j.gia, dettaglio + ". Controlla il documento.", j.nome); return; }
+      mostraEsito("si", "Tessera valida", dettaglio, j.nome);
     } catch (err) { mostraEsito("no", "Controllo non riuscito", "Non riusciamo a contattare il server."); }
   }
   $("apri-scanner").addEventListener("click", apriScanner);
@@ -388,12 +390,17 @@
       ruoli: { direttivo: true, carica: "Consigliere", ingressi: true }
     };
   }
+  const entrateDemo = {};
   function finta(d) {
     switch (d.azione) {
       case "soci-riunione": return Promise.resolve({ ok: false, errore: "Nella dimostrazione il collegamento non si apre. Qui partirebbe la videoconferenza su Google Meet." });
-      case "soci-controllo": return new Promise(ok => setTimeout(() => ok(d.codice === "026.2027.DIMOSTRAZION"
-        ? { ok: true, valida: true, nome: "Anna Esempio", numero: "026", anno: "2027", qualifica: "Socio del rilancio" }
-        : { ok: true, valida: false, motivo: "Nella dimostrazione si riconosce solo la tessera di esempio." }), 500));
+      case "soci-controllo": return new Promise(ok => setTimeout(() => {
+        if (d.codice !== "026.2027.DIMOSTRAZION") return ok({ ok: true, valida: false, motivo: "Nella dimostrazione si riconosce solo la tessera di esempio." });
+        const r = { ok: true, valida: true, nome: "Anna Esempio", numero: "026", anno: "2027", qualifica: "Socio del rilancio" };
+        if (entrateDemo[d.codice]) r.gia = entrateDemo[d.codice];
+        else entrateDemo[d.codice] = new Intl.DateTimeFormat("it-IT", { hour: "2-digit", minute: "2-digit" }).format(new Date());
+        ok(r);
+      }, 500));
       case "soci-ricevuta": case "soci-documento": return Promise.resolve({ ok: false, errore: "Nella dimostrazione i file non si scaricano." });
     }
     return Promise.resolve({ ok: true });
