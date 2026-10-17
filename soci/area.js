@@ -532,7 +532,7 @@
   function disegnaVoto(v) {
     const box = $("sala-voto");
     const testa = `<p class="voto-etichetta">Votazione n. ${esc(v.n)} · ${v.tipo === "Segreta" ? "voto segreto" : "voto palese"}</p><h3>${esc(v.oggetto)}</h3>`;
-    if (!v.puoVotare) { box.innerHTML = testa + '<p>Puoi seguire la votazione, ma non hai diritto di voto.</p><p class="voto-conta"></p>'; return; }
+    if (!v.puoVotare) { box.innerHTML = testa + `<p>Puoi seguire la votazione, ma non hai diritto di voto.${v.motivo ? " " + esc(v.motivo) : ""}</p><p class="voto-conta"></p>`; return; }
     if (v.votato) {
       box.innerHTML = testa + `<div class="voto-fatto"><span>✓</span><p>${v.tipo === "Segreta" ? "Il tuo voto segreto è stato registrato." : "Hai votato «" + esc(v.votato) + "»."}</p></div><p class="voto-conta"></p>`;
       return;
