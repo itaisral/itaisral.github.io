@@ -518,3 +518,92 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 }
 .notizia-testo h2 { font-size: clamp(24px, 3vw, 30px); margin: 40px 0 14px; }
 .titolo-notizia .punto { font-size: .55em; vertical-align: .25em; color: var(--rosso); }
+
+/* ---------- Area soci: dimostrazione, riunioni, controllo ingressi ---------- */
+.dimostrazione { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--linea); }
+.demo-banner { background: var(--oro-chiaro); color: var(--blu); border-radius: 10px; padding: 10px 16px; font-size: 15px; margin: 0 0 22px; }
+.bottone:disabled { opacity: .55; cursor: default; background: var(--blu); }
+.bottone.chiaro:disabled { background: transparent; }
+
+.area-blocco + .area-blocco, .controllo-ingressi { margin-bottom: 20px; }
+.riunioni-nota { margin: -6px 0 16px; }
+.riunioni { display: grid; gap: 12px; }
+.riunione { display: grid; grid-template-columns: 68px 1fr; gap: 18px; padding: 18px; border: 1px solid var(--linea); border-radius: 12px; background: var(--fondo); }
+.riunione.direttivo { border-left: 4px solid var(--rosso); }
+.ri-data { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 68px; border-radius: 10px; background: var(--blu); color: #fff; line-height: 1; }
+.ri-giorno { font-size: 28px; font-weight: 300; }
+.ri-mese { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; color: #e6a59e; }
+.ri-tipo { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--rosso); margin: 0 0 4px; }
+.ri-riservata { letter-spacing: 0; text-transform: none; font-size: 13px; color: var(--grigio); margin-left: 6px; }
+.riunione h4 { font-size: 20px; font-weight: 400; color: var(--blu); margin: 0 0 4px; }
+.ri-quando { color: var(--grigio); font-size: 15px; margin: 0 0 8px; }
+.ri-quando::first-letter { text-transform: uppercase; }
+.ri-odg { margin: 0 0 12px; font-size: 15px; }
+.ri-odg summary { cursor: pointer; color: var(--blu-2); }
+.ri-odg ol { margin: 8px 0 0; padding-left: 22px; }
+.ri-azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.ri-azioni .bottone { padding: 10px 20px; font-size: 15px; }
+.ri-msg { font-size: 14px; color: var(--rosso); }
+
+.controllo-ingressi { display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; background: var(--blu); border-color: var(--blu); color: #e9eef5; }
+.controllo-ingressi h3 { color: #fff; }
+.controllo-ingressi p { margin: 0; max-width: 620px; }
+.controllo-ingressi .bottone { background: #fff; color: var(--blu); border-color: #fff; flex-shrink: 0; }
+.controllo-ingressi .bottone:hover { background: var(--crema); border-color: var(--crema); }
+
+.scanner { position: fixed; inset: 0; z-index: 2100; background: #0d1b2d; color: #fff; display: flex; flex-direction: column; }
+.sc-testa { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; font-size: 17px; }
+.sc-chiudi { background: none; border: 0; color: #fff; font-size: 24px; cursor: pointer; padding: 4px 8px; }
+.sc-video { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #000; }
+.sc-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sc-mirino { position: absolute; left: 50%; top: 50%; width: min(64vw, 280px); aspect-ratio: 1; transform: translate(-50%, -50%);
+  border: 3px solid rgba(255, 255, 255, .9); border-radius: 18px; box-shadow: 0 0 0 9999px rgba(0, 0, 0, .35); }
+.sc-esito { padding: 16px 18px 22px; min-height: 140px; display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+.sc-aiuto { text-align: center; color: #c9d2de; margin: 0; }
+.sc-risultato { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 14px; }
+.sc-risultato.si { background: #2f7a47; }
+.sc-risultato.no { background: var(--rosso); }
+.sc-segno { width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, .2); display: grid; place-items: center; font-size: 30px; flex-shrink: 0; }
+.sc-titolo { margin: 0; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+.sc-nome { margin: 2px 0; font-size: 26px; line-height: 1.15; }
+.sc-dettaglio { margin: 0; font-size: 15px; opacity: .92; }
+.sc-avanti { width: 100%; background: #fff; color: var(--blu); border-color: #fff; }
+.scanner .sc-prova { margin: 0 18px 18px; color: #fff; border-color: rgba(255, 255, 255, .5); }
+@media (max-width: 720px) {
+  .controllo-ingressi { flex-direction: column; align-items: stretch; }
+  .riunione { grid-template-columns: 56px 1fr; gap: 14px; padding: 16px; }
+  .ri-data { height: 56px; } .ri-giorno { font-size: 23px; }
+}
+
+/* ---------- Incontri online ---------- */
+.incontri-elenco { max-width: 860px; }
+.incontri-elenco h2 { font-size: 30px; margin-bottom: 18px; }
+.incontri-elenco h2.passati { margin-top: 48px; }
+.incontro-voce { display: grid; grid-template-columns: 68px 1fr; gap: 18px; align-items: center; padding: 16px 18px; margin-bottom: 12px;
+  background: #fff; border: 1px solid var(--linea); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
+.incontro-voce:hover { border-color: var(--blu-2); transform: translateY(-2px); }
+.incontro-voce .ri-data { display: flex; }
+.iv-testo { display: flex; flex-direction: column; gap: 2px; }
+.iv-quando { font-size: 14px; color: var(--rosso); }
+.iv-quando::first-letter { text-transform: uppercase; }
+.iv-testo strong { font-weight: 400; font-size: 21px; color: var(--blu); line-height: 1.25; }
+.iv-ospite { color: var(--grigio); font-size: 15px; }
+.etichetta-esempio { display: inline-block; vertical-align: middle; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--blu);
+  background: var(--oro-chiaro); border-radius: 6px; padding: 2px 8px; margin-left: 6px; }
+.incontro-impaginato { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 48px; align-items: start; }
+.incontro-box { position: sticky; top: calc(var(--barra) + 24px); background: #fff; border: 1px solid var(--linea); border-radius: 16px; padding: 24px; }
+.ib-etichetta { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--rosso); margin: 0 0 4px; }
+.ib-quando { font-size: 19px; color: var(--blu); margin: 0; }
+.ib-quando::first-letter { text-transform: uppercase; }
+.ib-durata { color: var(--grigio); font-size: 15px; margin: 2px 0 18px; }
+.ib-ospite { margin: 0 0 22px; }
+.incontro-box .bottone { width: 100%; }
+.bottone.spento { opacity: .55; cursor: default; pointer-events: none; }
+.ib-nota { font-size: 14px; color: var(--grigio); margin: 8px 0 18px; text-align: center; }
+@media (max-width: 900px) {
+  .incontro-impaginato { grid-template-columns: 1fr; gap: 28px; }
+  .incontro-box { position: static; order: -1; }
+}
+@media (max-width: 720px) { .incontro-voce { grid-template-columns: 56px 1fr; gap: 14px; } }
+.scheda h3 a { color: inherit; text-decoration: none; }
+.scheda h3 a:hover { color: var(--blu-2); }

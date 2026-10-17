@@ -14,9 +14,9 @@
 <meta name="theme-color" content="#fbf8f2">
 <link rel="icon" href="/logo.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="Notizie dell’Associazione Italia Israele • Alessandria" href="/notizie/feed.xml">
-<link rel="stylesheet" href="/font/font.css?v=20261016a">
-<link rel="stylesheet" href="/barra.css?v=20261016a">
-<link rel="stylesheet" href="/stile.css?v=20261016a">
+<link rel="stylesheet" href="/font/font.css?v=20261017a">
+<link rel="stylesheet" href="/barra.css?v=20261017a">
+<link rel="stylesheet" href="/stile.css?v=20261017a">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -50,7 +50,7 @@
     <div class="contenitore">
       <p class="occhiello">Area soci</p>
       <h1>Il tuo spazio digitale</h1>
-      <p class="lead">La tua tessera digitale, le ricevute delle quote e i documenti dell’associazione.</p>
+      <p class="lead">La tua tessera digitale, le ricevute delle quote, i documenti dell’associazione e le riunioni in videoconferenza.</p>
     </div>
   </section>
 
@@ -67,6 +67,7 @@
           <div id="turnstile-area" class="verifica"></div>
           <div><button class="bottone" type="submit">Mandami il codice</button></div>
           <p class="esito" id="esito-email" role="status" aria-live="polite"></p>
+          <p class="piccolo dimostrazione">Fai parte del direttivo e vuoi vedere com’è fatta l’area? <button type="button" class="link" id="dimostrazione">Apri la dimostrazione con dati di prova</button></p>
         </form>
 
         <form id="f-codice" class="pannello-accesso" novalidate hidden>
@@ -89,12 +90,27 @@
       </div>
 
       <div id="area" hidden>
+        <p class="demo-banner" id="demo-banner" hidden>Stai guardando una dimostrazione con dati di prova. Nessun dato reale, nessun collegamento al libro soci.</p>
         <div class="area-testa">
           <h2 id="saluto">Shalom</h2>
           <button type="button" class="bottone chiaro" id="esci">Esci</button>
         </div>
         <div id="tessere" class="tessere"></div>
         <p class="piccolo tessere-nota">Agli incontri basta mostrare il codice QR della tessera dal telefono.</p>
+
+        <section class="area-blocco controllo-ingressi" id="blocco-ingressi" hidden>
+          <div>
+            <h3>Controllo degli ingressi</h3>
+            <p>Agli eventi inquadra con il telefono il QR della tessera. Vedi subito se è valida e a chi appartiene, senza elenchi stampati.</p>
+          </div>
+          <button type="button" class="bottone" id="apri-scanner">Controlla le tessere</button>
+        </section>
+
+        <section class="area-blocco">
+          <h3>Riunioni</h3>
+          <p class="piccolo riunioni-nota">Assemblee e consigli in videoconferenza. Il pulsante per collegarti si accende 15 minuti prima dell’inizio, e il collegamento lo ricevono solo i soci che ne hanno diritto.</p>
+          <div id="riunioni" class="riunioni"></div>
+        </section>
 
         <div class="area-colonne">
           <section class="area-blocco">
@@ -117,7 +133,7 @@
   </section>
 </main>
 <script src="/lib/qrcode.js?v=1.4.4"></script>
-<script src="/soci/area.js?v=20261016a" defer></script>
+<script src="/soci/area.js?v=20261017a" defer></script>
 
 <!--piede-->
 <div id="piede-sito" class="piede" role="contentinfo">
@@ -163,8 +179,8 @@
     </div>
   </div>
 </div>
-<script src="/barra.js?v=20261016a" defer></script>
+<script src="/barra.js?v=20261017a" defer></script>
 <!--/piede-->
-<script src="/sito.js?v=20261016a" defer></script>
+<script src="/sito.js?v=20261017a" defer></script>
 </body>
 </html>
