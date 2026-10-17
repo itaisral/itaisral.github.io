@@ -607,3 +607,77 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 @media (max-width: 720px) { .incontro-voce { grid-template-columns: 56px 1fr; gap: 14px; } }
 .scheda h3 a { color: inherit; text-decoration: none; }
 .scheda h3 a:hover { color: var(--blu-2); }
+
+/* ---------- Sala riunioni ---------- */
+.ri-nota { font-size: 14px; color: var(--grigio); margin: 8px 0 0; }
+.sala-testa { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.sala-testa h2 { margin: 2px 0 4px; }
+.sala-testa .ri-quando { margin: 0; }
+.sala-griglia { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 20px; align-items: start; }
+.sala-video { position: relative; background: #0d1b2d; border-radius: 16px; overflow: hidden; aspect-ratio: 16 / 10; min-height: 300px; }
+.sala-video iframe { position: absolute; inset: 0; border: 0; }
+.video-assente { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; color: #e9eef5; padding: 20px; }
+.video-assente p { margin: 0 0 6px; } .video-assente .piccolo { color: #9fb0c5; }
+.video-finto { position: absolute; inset: 12px 12px 46px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.vf-riquadro { background: #1d3a5e; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #fff; }
+.vf-riquadro span { width: 56px; height: 56px; border-radius: 50%; background: #2b5283; display: grid; place-items: center; font-size: 20px; }
+.vf-riquadro small { font-size: 13px; color: #c9d2de; }
+.video-nota { position: absolute; left: 0; right: 0; bottom: 12px; margin: 0; text-align: center; color: #9fb0c5; font-size: 14px; }
+.sala-lato { display: grid; gap: 16px; }
+.sala-blocco { background: #fff; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 20px; }
+.sala-blocco h3 { font-size: 20px; margin-bottom: 10px; }
+.sala-blocco ol { margin: 0; padding-left: 22px; }
+.sala-voto { background: #fff; border: 2px solid var(--blu); border-radius: 14px; padding: 18px 20px; }
+.sala-voto h3 { font-size: 22px; margin: 2px 0 14px; }
+.voto-etichetta { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--rosso); margin: 0; }
+.voto-vuoto p { margin: 0 0 4px; color: var(--blu); }
+.voto-scelte { display: grid; gap: 10px; }
+.voto-scelta { width: 100%; padding: 16px; font: inherit; font-size: 19px; border-radius: 12px; border: 2px solid var(--linea); background: var(--fondo); color: var(--blu); cursor: pointer; }
+.voto-scelta:hover { border-color: var(--blu-2); }
+.voto-scelta.favorevole { background: #2f7a47; border-color: #2f7a47; color: #fff; }
+.voto-scelta.contrario { background: var(--rosso); border-color: var(--rosso); color: #fff; }
+.voto-scelta.astenuto { background: #6b6f76; border-color: #6b6f76; color: #fff; }
+.voto-conferma { font-size: 18px; margin: 0 0 12px; }
+.voto-grande { width: 100%; padding: 15px; font-size: 17px; margin-bottom: 8px; }
+.voto-fatto { display: flex; align-items: center; gap: 12px; background: #e8f3ec; border-radius: 12px; padding: 12px 14px; }
+.voto-fatto span { width: 36px; height: 36px; border-radius: 50%; background: #2f7a47; color: #fff; display: grid; place-items: center; flex-shrink: 0; }
+.voto-fatto p { margin: 0; }
+.voto-conta { font-size: 14px; color: var(--grigio); margin: 10px 0 0; }
+.esito-voto + .esito-voto { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--linea); }
+.ev-titolo { margin: 0 0 8px; color: var(--blu); }
+.ev-titolo span { font-size: 13px; color: var(--grigio); margin-left: 4px; }
+.ev-riga { display: grid; grid-template-columns: 110px 1fr 28px; align-items: center; gap: 8px; font-size: 14.5px; margin-bottom: 5px; }
+.ev-nome { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ev-barra { height: 8px; background: var(--crema); border-radius: 4px; overflow: hidden; }
+.ev-barra span { display: block; height: 100%; background: var(--blu); }
+.ev-riga b { font-weight: 600; text-align: right; }
+.sala-conduci label { display: block; font-size: 14px; color: var(--blu); margin: 10px 0 4px; }
+.sala-conduci input[type=text], .sala-conduci input:not([type]), .sala-conduci textarea { width: 100%; padding: 9px 10px; font: inherit; font-size: 15px; border: 1px solid #cfc6b6; border-radius: 8px; background: #fff; }
+.v-tipo { display: flex; gap: 18px; margin-top: 10px; }
+.v-tipo label { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 15px; color: var(--testo); }
+.sala-conduci .bottone { width: 100%; margin-top: 12px; }
+#conduci-conta { margin: 0; color: var(--blu); }
+@media (max-width: 960px) {
+  .sala-griglia { grid-template-columns: 1fr; }
+  .sala-video { aspect-ratio: 4 / 3; min-height: 260px; }
+}
+@media (max-width: 560px) {
+  .sala-testa { flex-direction: column; }
+  .video-finto { inset: 10px 10px 40px; gap: 8px; }
+  .vf-riquadro small { display: none; }
+  .vf-riquadro span { width: 40px; height: 40px; font-size: 15px; }
+  .video-nota { bottom: 10px; font-size: 13px; }
+}
+
+/* ---------- Guida alle riunioni ---------- */
+.guida { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; align-items: start; }
+.guida-passi { list-style: none; counter-reset: passo; margin: 0; padding: 0; display: grid; gap: 14px; }
+.guida-passi li { counter-increment: passo; position: relative; background: #fff; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 20px 18px 76px; }
+.guida-passi li::before { content: counter(passo); position: absolute; left: 20px; top: 18px; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--blu); color: #fff; display: grid; place-items: center; font-size: 20px; }
+.guida-passi h3 { font-size: 21px; margin-bottom: 4px; }
+.guida-passi p { margin: 0; }
+.guida-consigli { background: var(--crema); border-radius: 14px; padding: 22px 24px; position: sticky; top: calc(var(--barra) + 24px); }
+.guida-consigli ul { padding-left: 20px; margin: 0 0 18px; }
+.guida-consigli li { margin-bottom: 8px; }
+@media (max-width: 900px) { .guida { grid-template-columns: 1fr; } .guida-consigli { position: static; } }
