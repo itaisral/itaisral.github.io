@@ -690,3 +690,4 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .chai-testo { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--linea); }
 .chai-testo .grido { text-align: center; }
 .chai-testo [lang="he"] { font-family: "Frank Ruhl Libre", serif; }
+.contenitore > .appuntamenti:first-child { margin-top: 0; }
