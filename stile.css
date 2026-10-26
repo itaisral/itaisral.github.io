@@ -686,3 +686,7 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .notizia-meta .in-italiano { color: var(--blu); border: 1px solid var(--linea); border-radius: 999px; padding: 0 8px; letter-spacing: .1em; font-size: 11px; line-height: 1.7; }
 .in-costruzione .quote { margin: 8px 0 28px; }
 .in-costruzione .bottone { margin-top: 8px; }
+.prosa .chai-grande, .chai-grande { font-family: "Frank Ruhl Libre", serif; font-size: 72px; line-height: 1; color: var(--rosso); text-align: center; margin: 0 0 18px; }
+.chai-testo { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--linea); }
+.chai-testo .grido { text-align: center; }
+.chai-testo [lang="he"] { font-family: "Frank Ruhl Libre", serif; }
