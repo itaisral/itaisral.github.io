@@ -3,9 +3,11 @@
    gli orari dello Shabbat sono calcolati qui, dal tramonto ad Alessandria. */
 (function () {
   const FESTE = window.FESTE || [], PARASHOT = window.PARASHOT || {};
+  const EN = document.documentElement.lang === "en", LOC = EN ? "en-US" : "it-IT";
   const LAT = 44.9124, LON = 8.6154;
   const MESI = { Tishri: "Tishrì", Heshvan: "Cheshvan", Kislev: "Kislev", Tevet: "Tevet", Shevat: "Shevat", "Adar I": "Adar I",
     "Adar II": "Adar II", Adar: "Adar", Nisan: "Nissan", Iyar: "Iyar", Sivan: "Sivan", Tamuz: "Tammuz", Av: "Av", Elul: "Elul" };
+  if (EN) Object.assign(MESI, { Tishri: "Tishrei", Nisan: "Nisan" });
   const MESI_HE = { Tishri: "תשרי", Heshvan: "חשוון", Kislev: "כסלו", Tevet: "טבת", Shevat: "שבט", "Adar I": "אדר א׳",
     "Adar II": "אדר ב׳", Adar: "אדר", Nisan: "ניסן", Iyar: "אייר", Sivan: "סיוון", Tamuz: "תמוז", Av: "אב", Elul: "אלול" };
   function gematria(n) {
@@ -27,11 +29,11 @@
     t("oggi-it").textContent = p.day + " " + (MESI[p.month] || p.month) + " " + p.year;
     t("oggi-he").textContent = gematria(Number(p.day)) + " ב" + (MESI_HE[p.month] || "") + " " + gematria(Number(p.year) % 1000);
   } catch (e) { }
-  t("oggi-civile").textContent = new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(oggi);
+  t("oggi-civile").textContent = new Intl.DateTimeFormat(LOC, { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(oggi);
 
   /* feste dei prossimi dodici mesi */
-  const fmt = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "numeric", month: "long", year: "numeric" });
-  const fmtBreve = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "numeric", month: "long" });
+  const fmt = new Intl.DateTimeFormat(LOC, { weekday: "short", day: "numeric", month: "long", year: "numeric" });
+  const fmtBreve = new Intl.DateTimeFormat(LOC, { weekday: "short", day: "numeric", month: "long" });
   const oggiIso = iso(oggi);
   const limite = new Date(oggi); limite.setFullYear(limite.getFullYear() + 1);
   t("feste").innerHTML = FESTE.filter(f => f.fine >= oggiIso && giorno(f.inizio) <= limite).map(f => {
@@ -40,10 +42,10 @@
       : (a.getFullYear() === b.getFullYear() ? fmtBreve.format(a) : fmt.format(a)) + " – " + fmt.format(b);
     const inCorso = f.inizio <= oggiIso && f.fine >= oggiIso;
     return `<li class="cal-festa ${f.tipo}${inCorso ? " in-corso" : ""}">
-      <div class="cal-quando"><span class="cal-data">${quando}</span><span class="cal-data-ebr">${f.ebr}</span></div>
-      <div class="cal-nome"><span class="cal-tr">${f.tr}</span><span class="cal-it">${f.it}</span></div>
+      <div class="cal-quando"><span class="cal-data">${quando}</span><span class="cal-data-ebr">${EN ? f.ebr_en : f.ebr}</span></div>
+      <div class="cal-nome"><span class="cal-tr">${EN ? f.tr_en : f.tr}</span><span class="cal-it">${EN ? f.en : f.it}</span></div>
       <div class="cal-he" lang="he" dir="rtl">${f.he}</div>
-      ${inCorso ? '<span class="cal-oggi-tag">in corso</span>' : ""}
+      ${inCorso ? '<span class="cal-oggi-tag">' + (EN ? "now" : "in corso") + '</span>' : ""}
     </li>`;
   }).join("");
 
@@ -82,13 +84,13 @@
   const sabato = new Date(venerdi); sabato.setDate(sabato.getDate() + 1);
   const candele = new Date(quandoIlSole(venerdi, 90.833).getTime() - 18 * 60000);
   const havdala = new Date(quandoIlSole(sabato, 98.5).getTime() + 30000);
-  const ora = d => new Intl.DateTimeFormat("it-IT", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Rome" }).format(d);
-  const data = d => new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Rome" }).format(d);
+  const ora = d => new Intl.DateTimeFormat(LOC, { hour: EN ? "numeric" : "2-digit", minute: "2-digit", timeZone: "Europe/Rome" }).format(d);
+  const data = d => new Intl.DateTimeFormat(LOC, { weekday: "long", day: "numeric", month: "long", timeZone: "Europe/Rome" }).format(d);
   const p = PARASHOT[iso(sabato)];
   t("shabbat").innerHTML =
-    (p ? `<p class="cal-parasha"><span lang="he" dir="rtl">${p[1]}</span><span>Parashà ${p[0]}</span></p>` : "") +
+    (p ? `<p class="cal-parasha"><span lang="he" dir="rtl">${p[1]}</span><span>${EN ? "Parashat " + (p[2] || p[0]) : "Parashà " + p[0]}</span></p>` : "") +
     `<dl class="cal-orari">
-       <div><dt>Accensione delle candele</dt><dd><span class="cal-ora">${ora(candele)}</span>${data(candele)}</dd></div>
-       <div><dt>Havdalà</dt><dd><span class="cal-ora">${ora(havdala)}</span>${data(havdala)}</dd></div>
+       <div><dt>${EN ? "Candle lighting" : "Accensione delle candele"}</dt><dd><span class="cal-ora">${ora(candele)}</span>${data(candele)}</dd></div>
+       <div><dt>${EN ? "Havdalah" : "Havdalà"}</dt><dd><span class="cal-ora">${ora(havdala)}</span>${data(havdala)}</dd></div>
      </dl>`;
 })();

@@ -681,3 +681,8 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .guida-consigli ul { padding-left: 20px; margin: 0 0 18px; }
 .guida-consigli li { margin-bottom: 8px; }
 @media (max-width: 900px) { .guida { grid-template-columns: 1fr; } .guida-consigli { position: static; } }
+
+/* ---------- versione inglese ---------- */
+.notizia-meta .in-italiano { color: var(--blu); border: 1px solid var(--linea); border-radius: 999px; padding: 0 8px; letter-spacing: .1em; font-size: 11px; line-height: 1.7; }
+.in-costruzione .quote { margin: 8px 0 28px; }
+.in-costruzione .bottone { margin-top: 8px; }

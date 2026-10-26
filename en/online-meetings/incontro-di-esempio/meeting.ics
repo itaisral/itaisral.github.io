@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Associazione Italia Israele Alessandria//Online meetings//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:incontro-di-esempio@italiaisraeleal.it
+DTSTAMP:20261026T201704Z
+DTSTART:20261119T200000Z
+DTEND:20261119T211500Z
+SUMMARY:Sample Online Meeting · Associazione Italia Israele • Alessandria
+DESCRIPTION:A sample page showing how the association’s online meetings will work. Link: https://italiaisraeleal.it/en/online-meetings/incontro-di-esempio/
+LOCATION:https://italiaisraeleal.it/en/online-meetings/incontro-di-esempio/
+URL:https://italiaisraeleal.it/en/online-meetings/incontro-di-esempio/
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Online meeting in 30 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
