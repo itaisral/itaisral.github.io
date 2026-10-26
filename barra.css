@@ -145,3 +145,8 @@
 #piede-sito .fondo-piede a { color: #9fb0c5; }
 @media (max-width: 1020px) { #piede-sito .colonne { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { #piede-sito .piede-in { padding: 0 16px; } #piede-sito .colonne { grid-template-columns: 1fr; gap: 32px; } #piede-sito .firma img { width: 84px; } }
+
+/* ---------- Piede sempre in fondo allo schermo, anche nelle pagine corte ---------- */
+body { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+body > * { flex-shrink: 0; width: 100%; }
+body > #piede-sito { margin-top: auto; }
