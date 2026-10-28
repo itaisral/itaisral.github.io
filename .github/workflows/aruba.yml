@@ -41,7 +41,7 @@ jobs:
             *.aruba.it) echo "Server FTP: $HOST" ;;
             *) echo "::error::Certificato FTP inatteso o assente: '$HOST'"; exit 1 ;;
           esac
-          DEST="${FTP_RADICE:-/}"
+          DEST="${FTP_RADICE:-/www.italiaisraeleal.it/}"
           lftp -c "
             set ftp:ssl-force true
             set ftp:ssl-protect-data true
