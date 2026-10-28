@@ -42,21 +42,38 @@ jobs:
             *) echo "::error::Certificato FTP inatteso o assente: '$HOST'"; exit 1 ;;
           esac
           DEST="${FTP_RADICE:-/www.italiaisraeleal.it/}"
-          lftp -c "
-            set ftp:ssl-force true
-            set ftp:ssl-protect-data true
-            set net:max-retries 3
-            set net:timeout 30
-            open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$HOST\"
-            mkdir -p -f \"$DEST\"
-            mirror --reverse --delete --no-perms --parallel=4 --verbose=1 \
-              --exclude-glob .git* --exclude ^\.github/ --exclude ^CNAME$ --exclude ^README\.md$ --exclude ^chai/ --exclude ^7ottobre/ --exclude ^video/ --exclude ^.well-known/ \
-              . \"$DEST\"
-          " > "$RUNNER_TEMP/lftp.log" 2>&1
+          ESCLUSI='--exclude-glob .git* --exclude ^\.github/ --exclude ^CNAME$ --exclude ^README\.md$ --exclude ^chai/ --exclude ^7ottobre/ --exclude ^video/ --exclude ^.well-known/'
+          # Con TLS 1.3 il server FTP di Aruba tronca alcuni file: si resta su TLS 1.2.
+          lftp_aruba() {
+            lftp -c "
+              set ftp:ssl-force true
+              set ftp:ssl-protect-data true
+              set ssl:priority NORMAL:-VERS-TLS1.3
+              set net:max-retries 3
+              set net:timeout 30
+              open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$HOST\"
+              $1
+            "
+          }
+          lftp_aruba "mkdir -p -f \"$DEST\"; mirror --reverse --delete --no-perms --parallel=2 --verbose=1 $ESCLUSI . \"$DEST\"" > "$RUNNER_TEMP/lftp.log" 2>&1
           esito=$?
           tail -40 "$RUNNER_TEMP/lftp.log"
           if [ $esito -ne 0 ]; then
             tail -8 "$RUNNER_TEMP/lftp.log" | while read -r l; do echo "::error::$l"; done
             exit $esito
+          fi
+          # Controllo: i file con dimensione diversa da quella locale vengono ricaricati, fino a tre volte.
+          for giro in 1 2 3; do
+            lftp_aruba "mirror --reverse --dry-run --ignore-time --no-perms $ESCLUSI . \"$DEST\"" > "$RUNNER_TEMP/diff.log" 2>&1
+            echo "::notice::Controllo giro $giro: $(head -c 300 "$RUNNER_TEMP/diff.log" | tr "\n" " ")"
+            diversi=$(grep -c '^put ' "$RUNNER_TEMP/diff.log")
+            [ "$diversi" -eq 0 ] && break
+            echo "Giro $giro: $diversi file da ricaricare"; grep '^put ' "$RUNNER_TEMP/diff.log" | head -20
+            lftp_aruba "mirror --reverse --ignore-time --no-perms --parallel=1 $ESCLUSI . \"$DEST\"" >> "$RUNNER_TEMP/lftp.log" 2>&1
+          done
+          if [ "$diversi" -ne 0 ]; then
+            echo "::error::Dopo tre tentativi $diversi file su Aruba non coincidono con quelli del repository."
+            grep '^put ' "$RUNNER_TEMP/diff.log" | head -8 | while read -r l; do echo "::error::$l"; done
+            exit 1
           fi
           echo "::notice::Copia su Aruba ($HOST$DEST): $(grep -c 'Transferring file' "$RUNNER_TEMP/lftp.log") file caricati, $(grep -c 'Removing old' "$RUNNER_TEMP/lftp.log") rimossi."
