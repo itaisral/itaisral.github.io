@@ -17,7 +17,7 @@ jobs:
   aruba:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Copia su Aruba
         env:
@@ -30,7 +30,9 @@ jobs:
             echo "::notice::Credenziali Aruba non ancora impostate: copia saltata."
             exit 0
           fi
-          sudo apt-get install -y -qq lftp > /dev/null
+          set +e
+          { sudo apt-get update -qq && sudo apt-get install -y -qq lftp; } > "$RUNNER_TEMP/apt.log" 2>&1 \
+            || { tail -5 "$RUNNER_TEMP/apt.log" | while read -r l; do echo "::error::apt: $l"; done; exit 1; }
           DEST="${FTP_RADICE:-/}"
           lftp -c "
             set ftp:ssl-allow true
@@ -41,4 +43,10 @@ jobs:
             mirror --reverse --delete --parallel=4 --verbose=1 \
               --exclude-glob .git* --exclude ^\.github/ --exclude ^CNAME$ --exclude ^README\.md$ --exclude ^chai/ --exclude ^7ottobre/ --exclude ^video/ --exclude ^.well-known/ \
               . \"$DEST\"
-          "
+          " > "$RUNNER_TEMP/lftp.log" 2>&1
+          esito=$?
+          tail -40 "$RUNNER_TEMP/lftp.log"
+          if [ $esito -ne 0 ]; then
+            tail -8 "$RUNNER_TEMP/lftp.log" | while read -r l; do echo "::error::$l"; done
+            exit $esito
+          fi
