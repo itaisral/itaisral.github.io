@@ -1,4 +1,0 @@
-# Prova temporanea: verifica se il server consente il passaggio da www all'indirizzo senza www.
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.italiaisraeleal\.it$ [NC]
-RewriteRule ^prova-redirect/?$ https://italiaisraeleal.it/prova-redirect-arrivo [R=302,L]
