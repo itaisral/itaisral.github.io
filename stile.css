@@ -706,3 +706,9 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 
 /* ---------- Grassetto nei testi: il corpo è a 300, quindi «bolder» darebbe solo 400 ---------- */
 .prosa strong, .prosa b { font-weight: 600; }
+
+/* pagina d'attesa: il piede resta sempre attaccato al fondo dello schermo, a qualunque risoluzione */
+body:has(.attesa) { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+body:has(.attesa) main { flex: 1 0 auto; display: flex; flex-direction: column; }
+body:has(.attesa) .apertura.attesa { flex: 1 0 auto; min-height: 0; }
+body:has(.attesa) #piede-sito { flex-shrink: 0; }
