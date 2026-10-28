@@ -691,3 +691,8 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .chai-testo .grido { text-align: center; }
 .chai-testo [lang="he"] { font-family: "Frank Ruhl Libre", serif; }
 .contenitore > .appuntamenti:first-child { margin-top: 0; }
+
+/* ---------- Larghezza unica: tutto il contenuto occupa la larghezza della barra, in ogni pagina ---------- */
+.testata .lead, .apertura .lead, .intro, .ricordo p, .fascia-chai .lead, .prosa, .titolo-lungo, .cal-piede,
+.testata .cal-criteri, .intro .cal-criteri, .nota-sostegno, .sostegno .lead, .titolo-notizia,
+.attesa .testo-apertura, .attesa-testo, .controllo-ingressi p, .incontri-elenco { max-width: none; }
