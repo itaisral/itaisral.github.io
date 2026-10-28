@@ -49,7 +49,7 @@ jobs:
             set net:timeout 30
             open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$HOST\"
             mkdir -p -f \"$DEST\"
-            mirror --reverse --delete --parallel=4 --verbose=1 \
+            mirror --reverse --delete --no-perms --parallel=4 --verbose=1 \
               --exclude-glob .git* --exclude ^\.github/ --exclude ^CNAME$ --exclude ^README\.md$ --exclude ^chai/ --exclude ^7ottobre/ --exclude ^video/ --exclude ^.well-known/ \
               . \"$DEST\"
           " > "$RUNNER_TEMP/lftp.log" 2>&1
