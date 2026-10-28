@@ -703,3 +703,6 @@ form.scrivici { background: #fff; border: 1px solid var(--linea); border-radius:
 .filtro-notizie button:hover { border-color: var(--blu-2); }
 .filtro-notizie button[aria-pressed="true"] { background: var(--blu); border-color: var(--blu); color: #fff; }
 .notizie-elenco [hidden] { display: none; }
+
+/* ---------- Grassetto nei testi: il corpo è a 300, quindi «bolder» darebbe solo 400 ---------- */
+.prosa strong, .prosa b { font-weight: 600; }
