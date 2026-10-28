@@ -1,0 +1,37 @@
+name: Pulizia una tantum della radice FTP
+
+# Toglie dalla cartella principale dello spazio FTP (fuori dal sito) solo le copie
+# finite lì per errore il 28 ottobre 2026: gli elementi con lo stesso nome di quelli
+# della radice di questo repository. Le cartelle di Aruba non vengono toccate.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pulizia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Pulizia
+        env:
+          FTP_SERVER: ${{ secrets.ARUBA_FTP_SERVER }}
+          FTP_USER: ${{ secrets.ARUBA_FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.ARUBA_FTP_PASSWORD }}
+        run: |
+          set +e
+          sudo apt-get update -qq > /dev/null 2>&1 && sudo apt-get install -y -qq lftp > /dev/null 2>&1
+          HOST=$(echo | timeout 20 openssl s_client -starttls ftp -connect "$FTP_SERVER:21" 2>/dev/null \
+                 | openssl x509 -noout -subject -nameopt multiline 2>/dev/null | awk -F' = ' '/commonName/{print $2}')
+          case "$HOST" in *.aruba.it) ;; *) echo "::error::Certificato inatteso: '$HOST'"; exit 1 ;; esac
+          conn="set ftp:ssl-force true; set ftp:ssl-protect-data true; open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$HOST\""
+          lftp -c "$conn; cls -1 /" | sed 's#/$##; s#^/##' | sort > radice.txt
+          ls -A | grep -v '^\.git$\|^\.github$\|^CNAME$\|^radice\.txt$' | sort > repo.txt
+          comm -12 radice.txt repo.txt > da-togliere.txt
+          echo "::notice::Radice prima: $(tr '\n' ' ' < radice.txt)"
+          echo "::notice::Da togliere ($(wc -l < da-togliere.txt)): $(tr '\n' ' ' < da-togliere.txt)"
+          cmd="$conn"
+          while read -r n; do [ -n "$n" ] && cmd="$cmd; rm -r -f \"/$n\""; done < da-togliere.txt
+          lftp -c "$cmd" > pulizia.log 2>&1; esito=$?
+          tail -5 pulizia.log | while read -r l; do echo "::warning::$l"; done
+          echo "::notice::Radice dopo: $(lftp -c "$conn; cls -1 /" | tr '\n' ' ')"
+          exit $esito
