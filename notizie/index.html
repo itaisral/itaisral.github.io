@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Notizie · Associazione Italia Israele • Alessandria</title>
-<meta name="description" content="Comunicati, prese di posizione e notizie dell’Associazione Italia Israele • Alessandria.">
+<meta name="description" content="Comunicati, prese di posizione, articoli e notizie dell’Associazione Italia Israele • Alessandria.">
 <meta property="og:title" content="Notizie · Associazione Italia Israele • Alessandria">
-<meta property="og:description" content="Comunicati, prese di posizione e notizie dell’Associazione Italia Israele • Alessandria.">
+<meta property="og:description" content="Comunicati, prese di posizione, articoli e notizie dell’Associazione Italia Israele • Alessandria.">
 <meta property="og:image" content="https://www.italiaisraeleal.it/img/condivisione.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,9 +19,9 @@
 <meta name="theme-color" content="#fbf8f2">
 <link rel="icon" href="/logo.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="Notizie dell’Associazione Italia Israele • Alessandria" href="/notizie/feed.xml">
-<link rel="stylesheet" href="/font/font.css?v=20261028a">
-<link rel="stylesheet" href="/barra.css?v=20261028a">
-<link rel="stylesheet" href="/stile.css?v=20261028a">
+<link rel="stylesheet" href="/font/font.css?v=20261028b">
+<link rel="stylesheet" href="/barra.css?v=20261028b">
+<link rel="stylesheet" href="/stile.css?v=20261028b">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -55,14 +55,21 @@
     <div class="contenitore">
       <p class="occhiello">Notizie</p>
       <h1>La nostra voce</h1>
-      <p class="lead">Comunicati, prese di posizione e notizie dall’associazione, dal più recente.</p>
+      <p class="lead">Comunicati, prese di posizione, articoli e notizie dall’associazione, dal più recente.</p>
     </div>
   </section>
 
   <section class="sezione">
     <div class="contenitore notizie-impaginato">
-      <div class="notizie-elenco">
-        <a class="notizia-voce compare" href="/notizie/online-il-nuovo-sito/"><p class="notizia-meta"><span>Comunicato stampa</span><time datetime="2026-10-15">15 ottobre 2026</time></p><h3>È online il nuovo sito dell’Associazione Italia Israele • Alessandria</h3><p>Informazione, attività culturali e servizi ai soci. Su italiaisraeleal.it il tesseramento online, la tessera digitale, il calendario ebraico della città e uno spazio dedicato alla memoria del 7 ottobre in quattro lingue.</p><span class="vai">Leggi <svg class="icona" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <div>
+        <div class="filtro-notizie" role="group" aria-label="Mostra">
+          <button type="button" data-filtro="" aria-pressed="true">Tutto</button>
+          <button type="button" data-filtro="comunicato" aria-pressed="false">Comunicati</button>
+          <button type="button" data-filtro="articolo" aria-pressed="false">Articoli</button>
+        </div>
+        <div class="notizie-elenco">
+          <a class="notizia-voce compare" href="/notizie/online-il-nuovo-sito/" data-genere="comunicato"><p class="notizia-meta"><span>Comunicato stampa</span><time datetime="2026-10-15">15 ottobre 2026</time></p><h3>È online il nuovo sito dell’Associazione Italia Israele • Alessandria</h3><p>Informazione, attività culturali e servizi ai soci. Su italiaisraeleal.it il tesseramento online, la tessera digitale, il calendario ebraico della città e uno spazio dedicato alla memoria del 7 ottobre in quattro lingue.</p><span class="vai">Leggi <svg class="icona" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="notizia-voce compare" href="/7ottobre/bologna/" data-genere="articolo"><p class="notizia-meta"><span>Articolo</span><time datetime="2026-10-07">7 ottobre 2026</time></p><h3>Bologna, 7 ottobre 2026. Una strage chiamata resistenza</h3><p>Il 7 ottobre di quest’anno, mentre Israele e le comunità ebraiche di mezzo mondo ricordavano i morti del più grave massacro di ebrei dai tempi della Shoah, in un’aula dell’Università di Bologna quel massacro veniva celebrato.</p><span class="vai">Leggi <svg class="icona" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
       </div>
       <aside class="notizie-laterale">
         <div class="riquadro-laterale compare">
@@ -90,6 +97,21 @@
     </div>
   </section>
 </main>
+<script>
+(function () {
+  var bottoni = document.querySelectorAll("[data-filtro]"), voci = document.querySelectorAll(".notizie-elenco [data-genere]");
+  function mostra(g) {
+    bottoni.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.filtro === g ? "true" : "false"); });
+    voci.forEach(function (v) { v.hidden = !!g && v.dataset.genere !== g; });
+  }
+  bottoni.forEach(function (b) { b.addEventListener("click", function () {
+    mostra(b.dataset.filtro);
+    history.replaceState(null, "", b.dataset.filtro ? "#" + ({comunicato: "comunicati", articolo: "articoli"})[b.dataset.filtro] : location.pathname);
+  }); });
+  var h = location.hash.slice(1);
+  if (h === "articoli") mostra("articolo"); else if (h === "comunicati") mostra("comunicato");
+})();
+</script>
 
 <!--piede-->
 <div id="piede-sito" class="piede" role="contentinfo">
@@ -135,8 +157,8 @@
     </div>
   </div>
 </div>
-<script src="/barra.js?v=20261028a" defer></script>
+<script src="/barra.js?v=20261028b" defer></script>
 <!--/piede-->
-<script src="/sito.js?v=20261028a" defer></script>
+<script src="/sito.js?v=20261028b" defer></script>
 </body>
 </html>

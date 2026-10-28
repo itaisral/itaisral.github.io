@@ -4,7 +4,7 @@
   <title>Associazione Italia Israele • Alessandria · Notizie</title>
   <link>https://www.italiaisraeleal.it/notizie/</link>
   <atom:link href="https://www.italiaisraeleal.it/notizie/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>Comunicati, prese di posizione e notizie dell’Associazione Italia Israele • Alessandria.</description>
+  <description>Comunicati, prese di posizione, articoli e notizie dell’Associazione Italia Israele • Alessandria.</description>
   <language>it</language>
   <item>
     <title>È online il nuovo sito dell’Associazione Italia Israele • Alessandria</title>
@@ -13,6 +13,14 @@
     <pubDate>Thu, 15 Oct 2026 09:00:00 +0200</pubDate>
     <category>Comunicato stampa</category>
     <description>Informazione, attività culturali e servizi ai soci. Su italiaisraeleal.it il tesseramento online, la tessera digitale, il calendario ebraico della città e uno spazio dedicato alla memoria del 7 ottobre in quattro lingue.</description>
+  </item>
+  <item>
+    <title>Bologna, 7 ottobre 2026. Una strage chiamata resistenza</title>
+    <link>https://www.italiaisraeleal.it/7ottobre/bologna/</link>
+    <guid>https://www.italiaisraeleal.it/7ottobre/bologna/</guid>
+    <pubDate>Wed, 07 Oct 2026 09:00:00 +0200</pubDate>
+    <category>Articolo</category>
+    <description>Il 7 ottobre di quest’anno, mentre Israele e le comunità ebraiche di mezzo mondo ricordavano i morti del più grave massacro di ebrei dai tempi della Shoah, in un’aula dell’Università di Bologna quel massacro veniva celebrato.</description>
   </item>
 </channel>
 </rss>
