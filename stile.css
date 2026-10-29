@@ -748,7 +748,7 @@ body:has(.attesa) #piede-sito { flex-shrink: 0; }
 .sala-nota a { color: var(--blu-2); }
 .sala-scheda { background: #fff; border: 1px solid var(--linea); border-radius: 14px; padding: 22px 24px; }
 .sala-scheda p { margin: 0 0 16px; }
-.logo-kit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.logo-kit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .logo-voce { margin: 0; background: #fff; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; }
 .logo-anteprima { height: 170px; display: grid; place-items: center; padding: 24px; background: var(--fondo); }
 .logo-voce.scuro .logo-anteprima { background: var(--blu); }
