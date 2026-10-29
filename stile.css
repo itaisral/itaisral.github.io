@@ -814,3 +814,18 @@ button.logo-anteprima { width: 100%; border: 0; cursor: zoom-in; position: relat
 .temi-notizia a:hover { border-color: var(--rosso); color: var(--rosso); }
 .testata .occhiello a { color: inherit; text-decoration: none; }
 .testata .occhiello a:hover { text-decoration: underline; }
+
+/* articoli: figure con didascalia, note, elenchi */
+.notizia-testo .notizia-figura { margin: 32px 0; overflow: visible; border-radius: 0; }
+.notizia-testo .notizia-figura img { border-radius: 12px; }
+.notizia-testo .notizia-figura figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--grigio); }
+.notizia-testo .notizia-figura figcaption a { color: var(--blu-2); }
+.notizia-testo ul, .notizia-testo ol { margin: 0 0 1.2em; padding-left: 1.3em; }
+.notizia-testo li { margin-bottom: .4em; }
+.notizia-testo sup.rif { font-size: .7em; line-height: 0; margin-left: 1px; }
+.notizia-testo sup.rif a { color: var(--rosso); text-decoration: none; font-weight: 400; }
+.notizia-testo ol.note { font-size: 14.5px; line-height: 1.55; color: #4a4d53; }
+.notizia-testo ol.note li { scroll-margin-top: calc(var(--barra) + 20px); }
+.notizia-testo ol.note li:target { background: var(--crema); border-radius: 6px; }
+.notizia-testo .torna-rif { text-decoration: none; color: var(--rosso); }
+.notizia-testo [id^="rif-"] { scroll-margin-top: calc(var(--barra) + 40px); }
