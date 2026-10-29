@@ -922,3 +922,11 @@ main .temi-notizia a:hover { color: var(--rosso); }
   .nv-img { grid-row: auto; min-height: 0; height: 150px; border-radius: 0; margin-bottom: 16px; }
   .notizia-voce .notizia-meta { margin-top: 0; }
 }
+
+/* ascolta l'articolo */
+.ascolta { margin: 0 0 30px; padding: 14px 16px 12px; border: 1px solid var(--linea); border-radius: 12px; background: #fff; }
+.ascolta-titolo { display: flex; align-items: center; gap: 10px; margin: 0 0 10px !important; font-size: 15.5px; color: var(--rosso); }
+.ascolta-titolo svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+.ascolta-titolo svg path + path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.ascolta-titolo span { margin-left: auto; font-size: 13px; color: var(--grigio); }
+.ascolta audio { display: block; width: 100%; height: 40px; }
