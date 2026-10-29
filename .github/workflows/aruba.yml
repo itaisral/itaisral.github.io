@@ -75,7 +75,9 @@ jobs:
           if [ "$COMPLETA" != "true" ] && [ ${#PRIMA} -eq 40 ] && git cat-file -e "$PRIMA^{commit}" 2>/dev/null \
              && git merge-base --is-ancestor "$PRIMA" HEAD; then
             # ------------------------------------------------ solo le modifiche
-            git diff --no-renames --name-only --diff-filter=ACMT "$PRIMA" HEAD | grep -Ev "$ESCLUSI_RE" > "$RUNNER_TEMP/cambiati.txt"
+            # prima fogli di stile, script e immagini, per ultime le pagine: così una pagina nuova non trova mai lo stile vecchio
+            git diff --no-renames --name-only --diff-filter=ACMT "$PRIMA" HEAD | grep -Ev "$ESCLUSI_RE" > "$RUNNER_TEMP/tutti.txt"
+            { grep -v '\.html$' "$RUNNER_TEMP/tutti.txt"; grep '\.html$' "$RUNNER_TEMP/tutti.txt"; } > "$RUNNER_TEMP/cambiati.txt"
             git diff --no-renames --name-only --diff-filter=D "$PRIMA" HEAD | grep -Ev "$ESCLUSI_RE" > "$RUNNER_TEMP/tolti.txt"
             echo "Ultima versione su Aruba: $PRIMA"
             echo "File cambiati: $(wc -l < "$RUNNER_TEMP/cambiati.txt"), eliminati: $(wc -l < "$RUNNER_TEMP/tolti.txt")"
