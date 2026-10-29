@@ -836,3 +836,8 @@ main :is(p, li, figcaption, td, dd, blockquote) a:not(.bottone):not(.collegament
   text-decoration-color: rgba(34, 71, 116, .35); transition: color .15s, text-decoration-color .15s; }
 main :is(p, li, figcaption, td, dd, blockquote) a:not(.bottone):not(.collegamento):not(.kit-link):not(.torna-rif):hover {
   color: var(--rosso); text-decoration-color: currentColor; }
+/* bottoni ed elenchi che sono già pulsanti: niente sottolineatura */
+main .temi-notizia a, main .logo-voce figcaption a, main .elenco-temi a, main .social-laterale a, main .cs-file a, main .scarica-social a {
+  text-decoration: none !important; }
+main .temi-notizia a { color: var(--blu); }
+main .temi-notizia a:hover { color: var(--rosso); }
