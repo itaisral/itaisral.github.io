@@ -841,3 +841,43 @@ main .temi-notizia a, main .logo-voce figcaption a, main .elenco-temi a, main .s
   text-decoration: none !important; }
 main .temi-notizia a { color: var(--blu); }
 main .temi-notizia a:hover { color: var(--rosso); }
+
+/* sala stampa: linguette e righe dei comunicati */
+.sala-schede { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--linea); margin-bottom: 22px; }
+.sala-schede [role=tab] { font: inherit; font-size: 17px; color: var(--grigio); background: none; border: 0; border-bottom: 2px solid transparent;
+  padding: 10px 14px 12px; margin-bottom: -1px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.sala-schede [role=tab] span { font-size: 12px; min-width: 22px; padding: 1px 7px; border-radius: 999px; background: var(--crema); color: var(--blu); }
+.sala-schede [role=tab]:hover { color: var(--blu); }
+.sala-schede [role=tab][aria-selected="true"] { color: var(--blu); border-bottom-color: var(--rosso); }
+.sala-sezione > .sala-nota:first-child { margin: 0 0 14px; }
+.cs-righe { border-top: 1px solid var(--linea); }
+.cs-riga { border-bottom: 1px solid var(--linea); scroll-margin-top: calc(var(--barra) + 20px); }
+.cs-testa { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 12px 0; }
+.cs-apri { font: inherit; text-align: left; background: none; border: 0; padding: 4px 0; cursor: pointer; color: var(--blu);
+  display: grid; grid-template-columns: 118px minmax(0, 1fr) 18px; align-items: baseline; gap: 14px; }
+.cs-apri time { font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--rosso); white-space: nowrap; }
+.cs-apri .cs-titolo { font-size: 17px; line-height: 1.35; }
+.cs-apri:hover .cs-titolo { color: var(--rosso); }
+.cs-apri .icona { width: 16px; height: 16px; fill: none; stroke: var(--grigio); stroke-width: 2; align-self: center; transition: transform .2s; }
+.cs-riga.aperta .cs-apri .icona { transform: rotate(180deg); }
+.cs-az { display: flex; gap: 6px; }
+.cs-pill { font: inherit; font-size: 13px; letter-spacing: .03em; padding: 5px 12px; border: 1px solid var(--linea); border-radius: 999px; background: #fff;
+  color: var(--blu); text-decoration: none !important; cursor: pointer; white-space: nowrap; }
+.cs-pill:hover { border-color: var(--rosso); color: var(--rosso); }
+.cs-pill.cs-copia { background: var(--blu); border-color: var(--blu); color: #fff; }
+.cs-pill.cs-copia:hover { background: var(--rosso); border-color: var(--rosso); color: #fff; }
+.cs-pill.copiato { background: var(--rosso) !important; border-color: var(--rosso) !important; color: #fff !important; }
+.cs-corpo { padding: 4px 0 22px 132px; }
+.cs-corpo .cs-sommario { font-style: italic; color: #4a4d53; margin: 0 0 12px; }
+.cs-anteprima { max-height: 320px; overflow-y: auto; padding: 16px 18px; background: #fff; border: 1px solid var(--linea); border-radius: 12px;
+  font-size: 15px; color: #3b4250; margin-bottom: 14px; }
+.cs-anteprima p { margin: 0 0 10px; }
+.cs-anteprima h3 { font-size: 16px; margin: 12px 0 6px; }
+.cs-corpo .cs-link { margin: 0; }
+@media (max-width: 760px) {
+  .cs-testa { grid-template-columns: 1fr; gap: 8px; }
+  .cs-apri { grid-template-columns: minmax(0, 1fr) 18px; gap: 4px 10px; }
+  .cs-apri time { grid-column: 1 / -1; }
+  .cs-corpo { padding-left: 0; }
+  .sala-schede [role=tab] { font-size: 15.5px; padding: 10px 10px 12px; }
+}
