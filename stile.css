@@ -898,3 +898,10 @@ main .temi-notizia a:hover { color: var(--rosso); }
   .cs-az { padding-left: 42px; }
   .cs-corpo { padding-left: 0; }
 }
+/* righe dei comunicati: titolo e sottotitolo, pulsanti dentro la riga aperta */
+.cs-testa { grid-template-columns: 1fr; }
+.cs-titoli { display: flex; flex-direction: column; gap: 3px; }
+.cs-apri .cs-sotto { font-size: 14px; line-height: 1.4; color: var(--grigio); }
+.cs-corpo .cs-az { margin: 2px 0 14px; padding: 0; }
+.cs-corpo .cs-pill { font-size: 14px; padding: 7px 16px; }
+@media (max-width: 760px) { .cs-corpo .cs-az { padding-left: 0; } }
