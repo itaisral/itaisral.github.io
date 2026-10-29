@@ -31,6 +31,31 @@
   document.addEventListener("keydown", e => { if (e.key === "Escape") chiudiTutto(); });
   document.addEventListener("click", e => { if (!e.target.closest("#barra-sito")) chiudiTutto(); });
 
+  // ricerca nel sito (Pagefind): la finestra e i suoi file si caricano solo al primo clic
+  const cerca = barra.querySelector(".cerca-btn");
+  if (cerca) cerca.addEventListener("click", () => {
+    chiudiTutto();
+    let f = document.getElementById("cerca-finestra");
+    if (!f) {
+      const en = document.documentElement.lang !== "it";
+      f = document.createElement("dialog");
+      f.id = "cerca-finestra"; f.className = "cerca-finestra";
+      f.innerHTML = '<div class="cf-testa"><span class="cf-titolo">' + (en ? "Search" : "Cerca nel sito") + '</span><button class="cf-chiudi" type="button" aria-label="' + (en ? "Close" : "Chiudi") + '">×</button></div><div id="cerca-ui"></div>';
+      document.body.appendChild(f);
+      f.querySelector(".cf-chiudi").addEventListener("click", () => f.close());
+      f.addEventListener("click", e => { if (e.target === f) f.close(); });
+      const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "/pagefind/pagefind-ui.css"; document.head.appendChild(l);
+      const s = document.createElement("script"); s.src = "/pagefind/pagefind-ui.js";
+      s.onload = () => {
+        new PagefindUI({ element: "#cerca-ui", showSubResults: true, showImages: false, resetStyles: false, autofocus: true });
+        const i = f.querySelector("input"); if (i) i.focus();
+      };
+      document.head.appendChild(s);
+    }
+    f.showModal();
+    const i = f.querySelector("input"); if (i) setTimeout(() => i.focus(), 30);
+  });
+
   const segna = () => barra.classList.toggle("scorsa", window.scrollY > 8);
   window.addEventListener("scroll", segna, { passive: true }); segna();
 

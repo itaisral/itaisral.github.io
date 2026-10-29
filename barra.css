@@ -169,3 +169,27 @@
 body { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
 body > * { flex-shrink: 0; width: 100%; }
 body > #piede-sito { margin-top: auto; }
+
+/* ricerca */
+#barra-sito .cerca-btn { order: 2; flex: none; width: 34px; height: 34px; margin-left: 8px; border: 1px solid var(--b-linea); border-radius: 50%; background: none;
+  display: grid; place-items: center; cursor: pointer; color: var(--b-blu); padding: 0; }
+#barra-sito .cerca-btn:hover { color: var(--b-rosso); border-color: var(--b-rosso); }
+#barra-sito .cerca-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+#barra-sito .menu-btn { order: 3; }
+#barra-sito .menu { order: 1; }
+.cerca-finestra { width: min(760px, calc(100vw - 24px)); max-height: calc(100vh - 80px); margin: 56px auto auto; padding: 0; border: 0; border-radius: 16px;
+  background: #fff; color: #1f2023; box-shadow: 0 30px 80px rgba(15, 32, 54, .3); overflow: auto;
+  --pagefind-ui-font: "Titillium Web", system-ui, sans-serif; --pagefind-ui-primary: #18304e; --pagefind-ui-text: #1f2023;
+  --pagefind-ui-background: #fff; --pagefind-ui-border: #e4ddd1; --pagefind-ui-tag: #f6eddd; --pagefind-ui-border-radius: 10px; --pagefind-ui-scale: .9; }
+.cerca-finestra::backdrop { background: rgba(15, 32, 54, .6); backdrop-filter: blur(3px); }
+.cf-testa { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px 0; }
+.cf-titolo { font-family: "Titillium Web", system-ui, sans-serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: #b12218; }
+.cf-chiudi { border: 0; background: none; font-size: 28px; line-height: 1; color: #6b6f76; cursor: pointer; padding: 0 4px; }
+.cf-chiudi:hover { color: #b12218; }
+#cerca-ui { padding: 12px 20px 22px; }
+#cerca-ui .pagefind-ui__result-link { color: #18304e; }
+#cerca-ui mark { background: #f2e3ce; color: inherit; }
+@media (max-width: 1180px) { #barra-sito .cerca-btn { width: 40px; height: 40px; margin-left: 0; border: 0; } }
+@media (max-width: 560px) { .cerca-finestra { margin-top: 12px; max-height: calc(100vh - 24px); } }
+.cerca-finestra .pagefind-ui__search-input, .cerca-finestra .pagefind-ui__search-clear, .cerca-finestra .pagefind-ui__message, .cerca-finestra .pagefind-ui__button { font-family: "Titillium Web", system-ui, sans-serif !important; font-weight: 400; }
+.cerca-finestra .pagefind-ui__search-clear { font-size: 13px; color: #6b6f76; }

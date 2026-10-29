@@ -801,3 +801,16 @@ button.logo-anteprima { width: 100%; border: 0; cursor: zoom-in; position: relat
 .lf-file { display: flex; flex-wrap: wrap; gap: 8px; }
 .lf-file .bottone { padding: 9px 16px; font-size: 15px; margin: 0; }
 @media (max-width: 560px) { .lf-immagine { height: 52vh; } .lf-immagine img { inset: 20px; width: calc(100% - 40px); height: calc(100% - 40px); } }
+
+/* temi delle notizie */
+.elenco-temi { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.elenco-temi a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 8px; margin: 0 -8px; border-radius: 8px; color: var(--blu); text-decoration: none; }
+.elenco-temi a:hover, .elenco-temi a[aria-current] { background: var(--crema, #f6eddd); }
+.elenco-temi a[aria-current] { color: var(--rosso); }
+.elenco-temi span { font-size: 12.5px; color: var(--grigio); }
+.elenco-temi .sotto-tema a { padding-left: 24px; font-size: 14.5px; }
+.temi-notizia { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+.temi-notizia a { font-size: 13px; letter-spacing: .04em; padding: 4px 12px; border: 1px solid var(--linea); border-radius: 999px; color: var(--blu); text-decoration: none; background: rgba(255,255,255,.6); }
+.temi-notizia a:hover { border-color: var(--rosso); color: var(--rosso); }
+.testata .occhiello a { color: inherit; text-decoration: none; }
+.testata .occhiello a:hover { text-decoration: underline; }
