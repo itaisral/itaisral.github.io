@@ -881,3 +881,20 @@ main .temi-notizia a:hover { color: var(--rosso); }
   .cs-corpo { padding-left: 0; }
   .sala-schede [role=tab] { font-size: 15.5px; padding: 10px 10px 12px; }
 }
+/* righe dei comunicati: freccia in evidenza a sinistra */
+.cs-apri { grid-template-columns: 30px 118px minmax(0, 1fr); align-items: center; }
+.cs-freccia { width: 30px; height: 30px; border-radius: 50%; background: var(--crema); display: grid; place-items: center; transition: background .2s; }
+.cs-freccia .icona { width: 16px; height: 16px; fill: none; stroke: var(--blu); stroke-width: 2.2; transition: transform .2s; }
+.cs-apri:hover .cs-freccia { background: var(--rosso); }
+.cs-apri:hover .cs-freccia .icona { stroke: #fff; }
+.cs-riga.aperta .cs-freccia { background: var(--blu); }
+.cs-riga.aperta .cs-freccia .icona { stroke: #fff; transform: rotate(180deg); }
+.cs-corpo { padding-left: 176px; }
+@media (max-width: 760px) {
+  .cs-apri { grid-template-columns: 30px minmax(0, 1fr); gap: 2px 12px; }
+  .cs-apri time { grid-column: 2; }
+  .cs-apri .cs-titolo { grid-column: 2; }
+  .cs-freccia { grid-row: 1 / span 2; }
+  .cs-az { padding-left: 42px; }
+  .cs-corpo { padding-left: 0; }
+}
