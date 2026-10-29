@@ -829,3 +829,10 @@ button.logo-anteprima { width: 100%; border: 0; cursor: zoom-in; position: relat
 .notizia-testo ol.note li:target { background: var(--crema); border-radius: 6px; }
 .notizia-testo .torna-rif { text-decoration: none; color: var(--rosso); }
 .notizia-testo [id^="rif-"] { scroll-margin-top: calc(var(--barra) + 40px); }
+
+/* link nei testi: sottolineatura sottile e staccata, rossa al passaggio */
+main :is(p, li, figcaption, td, dd, blockquote) a:not(.bottone):not(.collegamento):not(.kit-link):not(.torna-rif) {
+  color: var(--blu-2); text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .22em;
+  text-decoration-color: rgba(34, 71, 116, .35); transition: color .15s, text-decoration-color .15s; }
+main :is(p, li, figcaption, td, dd, blockquote) a:not(.bottone):not(.collegamento):not(.kit-link):not(.torna-rif):hover {
+  color: var(--rosso); text-decoration-color: currentColor; }
